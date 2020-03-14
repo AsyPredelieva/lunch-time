@@ -35,6 +35,11 @@ li {
 }
 
 h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h2 {
     color: #314a57;
     font-size: 24px;
     line-height: 1.5;
