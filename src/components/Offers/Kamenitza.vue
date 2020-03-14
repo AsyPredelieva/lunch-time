@@ -4,9 +4,8 @@
 
 <script>
 export default {
-    name: "kamenitza-menu"
-};
+    name: 'kamenitza'
+}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

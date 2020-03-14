@@ -1,17 +1,14 @@
 <template>
     <div class="offers container">
+        <h1>Get the best</h1>
         <ul class="offers-tab-container">
-            <li>
-                <button @click="changeTab('kamenitza-menu')">Kamenitza</button>
-            </li>
-            <li>
-                <button @click="changeTab('juzhen-menu')">Juzhen polah</button>
-            </li>
-            <li>
-                <button @click="changeTab('riviera-menu')">Riviera</button>
-            </li>
-            <li>
-                <button @click="changeTab('pizza-menu')">Dolce Pizza</button>
+            <li v-for="offer in offers" :key="offer.id">
+                <a
+                    href="#"
+                    @click.prevent="changeTab"
+                    :class="{ active: isActive }"
+                    >{{ offer.name }}</a
+                >
             </li>
         </ul>
         <keep-alive>
@@ -21,29 +18,51 @@
 </template>
 
 <script>
-import KamenitzaMenu from "../components/Offers/KamenitzaMenu";
+import { offers } from '../data/offers'
+import Kamenitza from '../components/Offers/Kamenitza'
+import Riviera from '../components/Offers/Riviera'
+import JuzhenPolah from '../components/Offers/JuzhenPolah'
+import DolcePizza from '../components/Offers/DolcePizza'
 
 export default {
-    name: "Offers",
+    name: 'Offers',
     data() {
         return {
-            activeTab: "kamenitza-menu"
-        };
+            offers,
+            activeTab: offers[0].name
+        }
     },
     components: {
-        KamenitzaMenu
+        Kamenitza,
+        Riviera,
+        JuzhenPolah,
+        DolcePizza
     },
-    method: {
-        changeTab(currentTab) {
-            this.activeTab = currentTab;
+    computed: {
+        isActive(currentTab) {
+            return this.activeTab === currentTab ? true : false
+        }
+    },
+    methods: {
+        changeTab(e) {
+            this.activeTab = e.target.innerHTML
+                .toLowerCase()
+                .split(' ')
+                .join('-')
         }
     }
-};
+}
 </script>
 
 <style scoped>
 .offers-tab-container {
     width: 100%;
     display: flex;
+    justify-content: space-between;
+
+    li {
+        a {
+        }
+    }
 }
 </style>

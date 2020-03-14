@@ -35,9 +35,39 @@ li {
 }
 
 h1 {
+    color: #314a57;
     font-size: 24px;
     line-height: 1.5;
-    margin-bottom: 15px;
+    padding-bottom: 17px;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    border-bottom: 3px solid rgba(33, 147, 208, 0.3);
+
+    &:before {
+        content: '';
+        width: 47px;
+        height: 47px;
+        background: #fff;
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        bottom: -25px;
+        margin-left: -22px;
+    }
+
+    &:after {
+        content: '';
+        background: url('./assets/icon-headings.png') center center no-repeat;
+        background-size: 35px;
+        width: 35px;
+        height: 35px;
+        display: block;
+        position: absolute;
+        left: 50%;
+        margin-left: -17px;
+    }
 }
 
 p,
@@ -55,6 +85,11 @@ ul {
     }
 }
 
+a {
+    text-decoration: none;
+    color: #79c150;
+}
+
 img {
     max-width: 100%;
 }
@@ -63,7 +98,7 @@ img {
     font-family: Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
+    color: #314a57;
     font-size: 16px;
     line-height: 1.4;
 }
@@ -72,6 +107,7 @@ img {
     width: 960px;
     max-width: 100%;
     margin: 40px auto;
+    text-align: center;
 }
 
 .grid-half {
