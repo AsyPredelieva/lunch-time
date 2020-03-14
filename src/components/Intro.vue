@@ -42,7 +42,7 @@ export default {
     width: 100%;
     display: flex;
     align-items: center;
-    border: 5px solid #42b983;
+    border: 5px solid #79c150;
     border-radius: 15px;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
 }
