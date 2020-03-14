@@ -47,7 +47,7 @@ ol {
 }
 
 ul {
-    /* list-style: none; */
+    list-style: none;
     list-style-position: inside;
 
     li:not(:last-child) {
