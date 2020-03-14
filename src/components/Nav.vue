@@ -4,10 +4,18 @@
             <img src="../assets/logo.png" class="logo" alt="Lunch for break" />
         </div>
         <ul>
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/offers">Offers</router-link></li>
-            <li><router-link to="/login">Login</router-link></li>
-            <li><router-link to="/register">Register</router-link></li>
+            <li>
+                <router-link to="/">Home</router-link>
+            </li>
+            <li>
+                <router-link to="/offers">Offers</router-link>
+            </li>
+            <li>
+                <router-link to="/login">Login</router-link>
+            </li>
+            <li>
+                <router-link to="/register">Register</router-link>
+            </li>
         </ul>
     </div>
 </template>
@@ -25,6 +33,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    border-bottom: 3px solid rgba(33, 147, 208, 0.3);
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
 
     .logo-container {
