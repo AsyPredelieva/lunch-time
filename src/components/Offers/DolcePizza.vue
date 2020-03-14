@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'kamenitza'
+    name: 'dolce-pizza'
 }
 </script>
 

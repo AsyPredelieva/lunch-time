@@ -1,18 +1,22 @@
 export const offers = [
     {
         id: 0,
-        name: 'Kamenitza'
+        name: 'Kamenitza',
+        isActive: false
     },
     {
         id: 1,
-        name: 'Riviera'
+        name: 'Riviera',
+        isActive: false
     },
     {
         id: 2,
-        name: 'Juzhen polah'
+        name: 'Juzhen polah',
+        isActive: false
     },
     {
         id: 3,
-        name: 'Dolce Pizza'
+        name: 'Dolce Pizza',
+        isActive: false
     }
 ]

@@ -5,8 +5,8 @@
             <li v-for="offer in offers" :key="offer.id">
                 <a
                     href="#"
-                    @click.prevent="changeTab"
-                    :class="{ active: isActive }"
+                    @click.prevent="changeTab(offer, $event)"
+                    :class="{ active: offer.isActive }"
                     >{{ offer.name }}</a
                 >
             </li>
@@ -38,30 +38,54 @@ export default {
         JuzhenPolah,
         DolcePizza
     },
-    computed: {
-        isActive(currentTab) {
-            return this.activeTab === currentTab ? true : false
-        }
-    },
+    computed: {},
     methods: {
-        changeTab(e) {
+        changeTab(offer, e) {
             this.activeTab = e.target.innerHTML
                 .toLowerCase()
                 .split(' ')
                 .join('-')
+            this.offers.map(m => (m.isActive = false))
+            offer.isActive = true
         }
+    },
+    created() {
+        this.offers[0].isActive = true
     }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .offers-tab-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
 
     li {
+        margin: 0;
+        flex: 1 1 0px;
+
+        &:last-child a {
+            border-right: 1px solid rgba(33, 147, 208, 0.3);
+        }
         a {
+            color: #545454;
+            font-size: 18px;
+            line-height: 1.3;
+            font-weight: 500;
+            display: block;
+            padding: 10px 20px;
+            border-left: 1px solid rgba(33, 147, 208, 0.3);
+            border-top: 1px solid rgba(33, 147, 208, 0.3);
+            border-bottom: 1px solid rgba(33, 147, 208, 0.3);
+            transition: all 300ms linear;
+
+            &.active,
+            &:hover,
+            &:focus {
+                background: #79c150;
+                color: #fff;
+            }
         }
     }
 }
