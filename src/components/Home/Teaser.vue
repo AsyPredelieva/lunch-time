@@ -36,18 +36,19 @@ export default {
             padding: 120px 20px 20px;
 
             &.quick {
-                background: url(../assets/icon-quick-easy.png) center 20px
+                background: url(../../assets/icon-quick-easy.png) center 20px
                     no-repeat;
                 background-size: 85px;
             }
 
             &.easy {
-                background: url(../assets/icon-fast.png) center -50px no-repeat;
+                background: url(../../assets/icon-fast.png) center -50px no-repeat;
                 background-size: 155px;
             }
 
             &.gently {
-                background: url(../assets/icon-gentle.png) center 30px no-repeat;
+                background: url(../../assets/icon-gentle.png) center 30px
+                    no-repeat;
                 background-size: 95px;
             }
 
