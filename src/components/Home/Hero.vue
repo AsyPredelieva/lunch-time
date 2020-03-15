@@ -27,6 +27,7 @@ export default {
     height: 300px;
     background: url(../../assets/hero.jpg) center center no-repeat;
     background-size: cover;
+    margin-bottom: 40px;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
 }
 

@@ -23,6 +23,7 @@ export default {
 <style scoped lang="scss">
 .teaser {
     width: 100%;
+    margin-bottom: 60px;
 
     ul {
         display: flex;
