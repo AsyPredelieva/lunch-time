@@ -7,12 +7,9 @@
                     I know you are fully prepared to make the most important
                     choice of the day.
                 </p>
-                <p class="quote">
-                    <strong
-                        >"Let your lunch breake be longer than usual."</strong
-                    >
-                    <small>- Master Chef Yoda</small>
-                </p>
+                <router-link to="/offers" class="cta-btn"
+                    >Get Offers</router-link
+                >
             </div>
         </div>
     </div>
@@ -28,23 +25,10 @@ export default {
 .hero {
     width: 100%;
     height: 300px;
-    background: url(../assets/hero.jpg) center center no-repeat;
+    background: url(../../assets/hero.jpg) center center no-repeat;
     background-size: cover;
+    margin-bottom: 40px;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
-
-    .quote {
-        position: relative;
-
-        strong {
-            display: block;
-            font-size: 16px;
-        }
-
-        small {
-            float: right;
-            font-style: italic;
-        }
-    }
 }
 
 .container {
@@ -55,6 +39,10 @@ export default {
     width: 45%;
     text-align: left;
     font-size: 20px;
-    padding-top: 63px;
+    padding-top: 55px;
+
+    p {
+        margin-bottom: 35px;
+    }
 }
 </style>

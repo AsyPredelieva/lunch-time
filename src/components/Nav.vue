@@ -29,12 +29,13 @@ export default {
 <style scoped lang="scss">
 #nav {
     width: 100%;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
     border-bottom: 3px solid rgba(33, 147, 208, 0.3);
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
 
     .logo-container {
         width: 110px;
@@ -51,11 +52,12 @@ export default {
             position: relative;
 
             &:not(:last-child):after {
-                content: '|';
-                font-size: 18px;
-                color: #42b983;
+                content: '';
+                width: 1px;
+                height: 35px;
+                background: rgba(33, 147, 208, 0.3);
                 position: absolute;
-                top: -3px;
+                top: -7px;
                 right: -30px;
             }
 

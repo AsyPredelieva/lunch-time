@@ -99,6 +99,21 @@ img {
     max-width: 100%;
 }
 
+.cta-btn {
+    background: #3d7e17;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    transition: all 300ms linear;
+
+    &:hover {
+        background: #1e5300;
+    }
+}
+
 #app {
     font-family: Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -111,7 +126,7 @@ img {
 .container {
     width: 960px;
     max-width: 100%;
-    margin: 40px auto;
+    margin: 0 auto;
     text-align: center;
 }
 
