@@ -75,6 +75,12 @@ h2 {
     }
 }
 
+h3 {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
 p,
 ul,
 ol {
@@ -103,6 +109,7 @@ img {
     background: #3d7e17;
     color: #fff;
     padding: 10px 20px;
+    display: inline-block;
     border-radius: 25px;
     text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
