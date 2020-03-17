@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Offers from '../views/Offers.vue'
+// import OfferItem from '../components/Offers/OfferItem.vue'
 
 Vue.use(VueRouter)
 
@@ -15,11 +16,7 @@ const routes = [
         path: '/offers',
         name: 'Offers',
         component: Offers
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        // component: () =>
-        //     import(/* webpackChunkName: "about" */ '../views/Offers.vue')
+        // children: [{ path: '/offers/:id', component: OfferItem }]
     }
 ]
 

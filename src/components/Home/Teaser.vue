@@ -1,22 +1,32 @@
 <template>
     <div class="teaser">
         <ul>
-            <li class="quick">
-                <strong>Quick and easy</strong> find out the actual menus.
-            </li>
-            <li class="easy">
-                <strong>Fast and furious</strong> make your choice.
-            </li>
-            <li class="gently">
-                <strong>Gently and precisely</strong> order your favourite meal.
+            <li
+                v-for="teaser in teasers"
+                :key="teaser.id"
+                :class="{
+                    quick: teaser.isQuick,
+                    easy: teaser.isEasy,
+                    gently: teaser.isGentle
+                }"
+            >
+                <strong>{{ teaser.title }}</strong>
+                {{ teaser.description }}
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+import { teasers } from '../../data/teaser'
+
 export default {
-    name: 'Teaser'
+    name: 'Teaser',
+    data() {
+        return {
+            teasers
+        }
+    }
 }
 </script>
 
