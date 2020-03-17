@@ -133,7 +133,7 @@ img {
 .container {
     width: 960px;
     max-width: 100%;
-    margin: 40px auto;
+    margin: 0 auto;
     text-align: center;
 }
 
