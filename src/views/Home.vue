@@ -22,7 +22,7 @@
 
                 <section class="info">
                     <Article
-                        v-for="article in articles"
+                        v-for="article in articles.slice(0, 2)"
                         :key="article.id"
                         :article-item="article"
                     ></Article>
