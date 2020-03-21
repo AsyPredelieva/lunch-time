@@ -14,9 +14,6 @@ export default {
     components: {
         Logo,
         Nav
-    },
-    created() {
-        console.log(this.logo)
     }
 }
 </script>

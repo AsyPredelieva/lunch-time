@@ -9,32 +9,55 @@
         <div class="info-container">
             <div class="container">
                 <h2>Healthy Eating</h2>
-                <Info />
+                <section class="info">
+                    <Article
+                        v-for="article in articles"
+                        :key="article.id"
+                        :article-item="article"
+                    ></Article>
+                </section>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Hero from '../components/Home/Hero'
-import Teaser from '../components/Home/Teaser'
-import Quotes from '../components/Home/Quotes'
-import Info from '../components/Home/Info'
+import Hero from '../components/home/Hero'
+import Teaser from '../components/home/Teaser'
+import Quotes from '../components/home/Quotes'
+import Article from '../components/home/Article'
+import { articles } from '../data/articles'
 
 export default {
     name: 'Home',
+    data() {
+        return {
+            articles
+        }
+    },
     components: {
         Hero,
         Teaser,
         Quotes,
-        Info
+        Article
     }
 }
 </script>
 
-<style scoped>
-.info-container {
-    padding: 40px 0 60px;
-    background: url('../assets/info-bckgr.png') left -150% center no-repeat;
+<style scoped lang="scss">
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin: 0 -15px;
+    text-align: left;
+
+    &-container {
+        padding: 40px 0 60px;
+        background-image: url('../assets/info-bckgr.png'),
+            url('../assets/info-bckgr.png');
+        background-position: left -150% center, right -150% center;
+        background-repeat: no-repeat;
+    }
 }
 </style>
