@@ -1,18 +1,19 @@
 <template>
     <footer>
         <Nav />
-        <p>
-            <small>© 2013-2020 - Asy LTD - All Rights Reserved.</small>
-        </p>
+        <Logo />
+        <small>© 2013-2020 - Asy LTD - All Rights Reserved.</small>
     </footer>
 </template>
 
 <script>
 import Nav from './Nav'
+import Logo from './Logo'
 
 export default {
     components: {
-        Nav
+        Nav,
+        Logo
     }
 }
 </script>
@@ -20,10 +21,10 @@ export default {
 <style scoped lang="scss">
 footer {
     width: 100%;
-    min-height: 300px;
+    min-height: 200px;
     border-top: 3px solid rgba(33, 147, 208, 0.3);
-    background: url('../assets/footer-bcgr.png') center center no-repeat;
-    background-size: 20%;
+    padding: 20px 0 10px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -31,10 +32,15 @@ footer {
 
     nav {
         display: inline-block;
-        margin: 20px auto;
+        margin: 0 auto;
     }
 
-    p {
+    .logo-container {
+        width: 80px;
+    }
+
+    .logo-container,
+    small {
         align-self: center;
     }
 }
