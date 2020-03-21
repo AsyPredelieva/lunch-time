@@ -1,6 +1,6 @@
 <template>
     <div class="logo-container">
-        <img src="../assets/logo.png" class="logo" alt="Lunch for break" />
+        <img src="../../assets/logo.png" class="logo" alt="Lunch for break" />
     </div>
 </template>
 

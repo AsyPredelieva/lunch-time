@@ -7,16 +7,16 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
+import Header from './components/core/Header.vue'
+import Footer from './components/core/Footer.vue'
 
 export default {
-    name: "App",
+    name: 'App',
     components: {
         Header,
         Footer
     }
-};
+}
 </script>
 
 <style lang="scss">
@@ -54,7 +54,7 @@ h2 {
     border-bottom: 3px solid rgba(33, 147, 208, 0.3);
 
     &:before {
-        content: "";
+        content: '';
         width: 47px;
         height: 47px;
         background: #fff;
@@ -66,8 +66,8 @@ h2 {
     }
 
     &:after {
-        content: "";
-        background: url("./assets/icon-headings.png") center center no-repeat;
+        content: '';
+        background: url('./assets/icon-headings.png') center center no-repeat;
         background-size: 35px;
         width: 35px;
         height: 35px;

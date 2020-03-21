@@ -28,7 +28,7 @@ export default {
     background: url(../../assets/hero.jpg) center center no-repeat;
     background-size: cover;
     margin-bottom: 40px;
-    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: inset -1px -1px 7px rgba(0, 0, 0, 0.2);
 }
 
 .container {

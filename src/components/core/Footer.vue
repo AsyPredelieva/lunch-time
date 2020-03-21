@@ -24,6 +24,8 @@ footer {
     min-height: 200px;
     border-top: 3px solid rgba(33, 147, 208, 0.3);
     padding: 20px 0 10px;
+    background: url(../../assets/footer-bckgr.jpg) no-repeat;
+    background-size: cover;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
