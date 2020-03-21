@@ -1,8 +1,5 @@
 <template>
-    <div id="nav">
-        <div class="logo-container">
-            <img src="../assets/logo.png" class="logo" alt="Lunch for break" />
-        </div>
+    <nav>
         <ul>
             <li>
                 <router-link to="/">Home</router-link>
@@ -17,7 +14,7 @@
                 <router-link to="/register">Register</router-link>
             </li>
         </ul>
-    </div>
+    </nav>
 </template>
 
 <script>
@@ -27,50 +24,36 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#nav {
-    width: 100%;
-    position: relative;
+nav ul {
+    min-height: 35px;
+    list-style: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
-    border-bottom: 3px solid rgba(33, 147, 208, 0.3);
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+    margin: 0;
 
-    .logo-container {
-        width: 110px;
-        margin: 5px 20px;
-    }
+    li {
+        margin: 0 30px;
+        position: relative;
 
-    ul {
-        list-style: none;
-        display: flex;
-        margin: 0;
+        &:not(:last-child):after {
+            content: '';
+            width: 1px;
+            height: 35px;
+            background: rgba(33, 147, 208, 0.3);
+            position: absolute;
+            top: -7px;
+            right: -30px;
+        }
 
-        li {
-            margin: 0 30px;
-            position: relative;
+        a {
+            text-decoration: none;
+            color: #545454;
+            font-weight: 500;
+            transition: all 300ms linear;
 
-            &:not(:last-child):after {
-                content: '';
-                width: 1px;
-                height: 35px;
-                background: rgba(33, 147, 208, 0.3);
-                position: absolute;
-                top: -7px;
-                right: -30px;
-            }
-
-            a {
-                text-decoration: none;
-                color: #545454;
-                font-weight: 500;
-                transition: all 300ms linear;
-
-                &.router-link-exact-active,
-                &:hover {
-                    color: #79c150;
-                }
+            &.router-link-exact-active,
+            &:hover {
+                color: #79c150;
             }
         }
     }
