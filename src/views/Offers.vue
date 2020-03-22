@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <main class="container">
         <h2>Get the best</h2>
         <ul class="offers">
             <offer-item
@@ -8,7 +8,7 @@
                 :offer-item="offer"
             ></offer-item>
         </ul>
-    </div>
+    </main>
 </template>
 
 <script>

@@ -37,6 +37,12 @@ li {
     margin: 0;
 }
 
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
 h1 {
     font-size: 28px;
     margin-bottom: 20px;
@@ -113,14 +119,49 @@ img {
     max-width: 100%;
 }
 
+.form-field {
+    display: block;
+    margin: 0 auto 20px;
+    width: 100%;
+    border: 1px solid rgba(33, 147, 208, 0.3);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px 12px;
+    box-sizing: border-box;
+    text-align: left;
+
+    label {
+        display: block;
+        font-size: 12px;
+        color: rgba(33, 147, 208, 0.7);
+    }
+
+    input {
+        width: 100%;
+        font-size: 14px;
+        border: 0;
+        background: none;
+        padding: 5px 0;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
 .cta-btn {
+    min-width: 120px;
     background: #3d7e17;
     color: #fff;
+    font-size: 14px;
+    line-height: 1.3;
+    text-align: center;
     padding: 10px 20px;
     display: inline-block;
+    border: 0;
     border-radius: 25px;
     text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     transition: all 300ms linear;
 
@@ -136,6 +177,11 @@ img {
     color: #314a57;
     font-size: 16px;
     line-height: 1.4;
+    height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .container {
@@ -145,11 +191,36 @@ img {
     text-align: center;
 }
 
-.grid-half {
+/* .grid-half {
     max-width: calc(50% - 20px);
     flex-basis: calc(50% - 20px);
     padding: 0 10px;
     flex: 0 0 auto;
     flex-grow: 1;
+} */
+/* Grid */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    text-align: left;
+}
+
+.grid-full {
+    width: calc(100% - 30px);
+    flex-basis: calc(100% - 30px);
+    margin: 0 15px;
+}
+
+.grid-half {
+    width: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+    margin: 0 15px;
+}
+
+.grid-aside {
+    width: calc(33.333% - 30px);
+    flex-basis: calc(33.333% - 30px);
+    margin: 0 15px;
 }
 </style>

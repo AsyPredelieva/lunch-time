@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="grid-half">
         <h3>{{ articleItem.title }}</h3>
         <p v-if="articleItem.description.length === 1">
             {{ articleItem.description[0] }}
@@ -35,9 +35,6 @@ export default {
 
 <style scoped lang="scss">
 article {
-    width: calc(50% - 30px);
-    flex-basis: calc(50% - 30px);
-    margin: 0 15px;
     border: 1px solid rgba(33, 147, 208, 0.3);
     background: rgba(255, 255, 255, 0.75);
     padding: 20px;

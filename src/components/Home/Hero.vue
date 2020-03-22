@@ -44,5 +44,10 @@ export default {
     p {
         margin-bottom: 35px;
     }
+
+    .cta-btn {
+        font-size: 16px;
+        line-height: 1.4;
+    }
 }
 </style>

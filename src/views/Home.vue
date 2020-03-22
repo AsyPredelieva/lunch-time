@@ -1,11 +1,11 @@
 <template>
-    <div class="home">
+    <main class="home">
         <Hero />
 
         <div class="container">
             <h2>The best time of the day is comming</h2>
 
-            <ul class="teaser">
+            <ul class="teaser grid-container">
                 <Teaser
                     v-for="teaser in teasers"
                     :key="teaser.id"
@@ -20,7 +20,7 @@
             <div class="container">
                 <h2>Healthy Eating</h2>
 
-                <section class="info">
+                <section class="grid-container">
                     <Article
                         v-for="article in articles.slice(0, 2)"
                         :key="article.id"
@@ -29,7 +29,7 @@
                 </section>
             </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <script>
@@ -59,22 +59,14 @@ export default {
 
 <style scoped lang="scss">
 .teaser {
-    display: flex;
-    margin: 0 -15px 60px;
+    margin-bottom: 60px;
 }
 
-.info {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -15px;
-    text-align: left;
-
-    &-container {
-        padding: 40px 0 60px;
-        background-image: url('../assets/info-bckgr.png'),
-            url('../assets/info-bckgr.png');
-        background-position: left -150% center, right -150% center;
-        background-repeat: no-repeat;
-    }
+.info-container {
+    padding: 40px 0 60px;
+    background-image: url('../assets/info-bckgr.png'),
+        url('../assets/info-bckgr.png');
+    background-position: left -150% center, right -150% center;
+    background-repeat: no-repeat;
 }
 </style>
