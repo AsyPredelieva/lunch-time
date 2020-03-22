@@ -95,7 +95,9 @@ ul {
 
     &:not(.bullet) {
         list-style: none;
+    }
 
+    &.bullet {
         li:not(:last-child) {
             margin-bottom: 7px;
         }
