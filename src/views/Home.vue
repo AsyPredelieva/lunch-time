@@ -57,23 +57,21 @@ export default {
     },
     methods: {
         getArticles() {
-            const appKey = 'kid_Sy8OICVII'
-            const appSecret = 'f5f97678c4f144348a8ff2ec30c54e4d'
-
-            fetch(`https://baas.kinvey.com/appdata/${appKey}/articles`, {
-                method: 'GET',
-                headers: {
-                    Authorization: `Kinvey ${this.authToken}`,
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(res => res.json())
-                .then(data => (this.articles = data))
-                .catch(error => console.error())
+            // const appKey = 'kid_Sy8OICVII'
+            // const appSecret = 'f5f97678c4f144348a8ff2ec30c54e4d'
+            // fetch(`https://baas.kinvey.com/appdata/${appKey}/articles`, {
+            //     method: 'GET',
+            //     headers: {
+            //         Authorization: `Kinvey ${this.authToken}`,
+            //         'Content-Type': 'application/json'
+            //     }
+            // })
+            //     .then(res => res.json())
+            //     .then(data => (this.articles = data))
         }
     },
     mounted() {
-        this.getArticles()
+        // this.getArticles()
     }
 }
 </script>
