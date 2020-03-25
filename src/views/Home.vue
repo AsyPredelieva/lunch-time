@@ -6,11 +6,7 @@
             <h2>The best time of the day is comming</h2>
 
             <ul class="teaser grid-container">
-                <Teaser
-                    v-for="teaser in teasers"
-                    :key="teaser.id"
-                    :teaser-item="teaser"
-                ></Teaser>
+                <Teaser v-for="teaser in teasers" :key="teaser.id" :teaser-item="teaser"></Teaser>
             </ul>
         </div>
 
@@ -83,8 +79,7 @@ export default {
 
 .info-container {
     padding: 40px 0 60px;
-    background-image: url('../assets/info-bckgr.png'),
-        url('../assets/info-bckgr.png');
+    background-image: url('../assets/info-bckgr.png'), url('../assets/info-bckgr.png');
     background-position: left -150% center, right -150% center;
     background-repeat: no-repeat;
 }
