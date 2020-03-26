@@ -4,8 +4,13 @@
             <li>
                 <router-link to="/">Home</router-link>
             </li>
-            <li>
+            <li class="sub-nav">
                 <router-link to="/offers">Offers</router-link>
+                <ul>
+                    <li v-for="offer in offers" :key="offer.id">
+                        <router-link :to="`/offers/${offer.name}`">{{ offer.name }}</router-link>
+                    </li>
+                </ul>
             </li>
             <li>
                 <router-link to="/login">Login</router-link>
@@ -18,8 +23,15 @@
 </template>
 
 <script>
+import { offers } from '../../data/offers'
+
 export default {
-    name: 'Nav'
+    name: 'Nav',
+    data() {
+        return {
+            offers
+        }
+    }
 }
 </script>
 
@@ -54,6 +66,48 @@ nav ul {
             &.router-link-exact-active,
             &:hover {
                 color: #79c150;
+            }
+        }
+
+        &.sub-nav {
+            position: relative;
+
+            &:hover {
+                & > a {
+                    padding-bottom: 45px;
+                }
+
+                & > ul {
+                    display: block;
+                }
+            }
+
+            & > ul {
+                display: none;
+                position: absolute;
+                top: 59px;
+                left: -30px;
+                background: #fff;
+                min-width: 190px;
+                box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+
+                li {
+                    width: 100%;
+                    display: block;
+                    margin: 0;
+
+                    &::after {
+                        display: none;
+                    }
+
+                    a {
+                        width: 100%;
+                        display: block;
+                        padding: 10px 30px;
+                        border-bottom: 1px solid rgba(33, 147, 208, 0.3);
+                        box-sizing: border-box;
+                    }
+                }
             }
         }
     }
