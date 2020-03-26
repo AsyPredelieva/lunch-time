@@ -4,14 +4,13 @@
         <div class="img-container">
             <img :src="offerItem.imgUrl" :alt="offerItem.name" />
         </div>
-        <a href="#" class="cta-btn" @click.prevent="getOffer(offerItem.id)"
-            >Get Menu</a
-        >
+        <router-link :to="`/offers/${offerItem.name}`" class="cta-btn">Get Menu</router-link>
     </li>
 </template>
 
 <script>
 export default {
+    name: 'offerItem',
     props: {
         offerItem: {
             name: {
@@ -20,14 +19,6 @@ export default {
             },
             imgUrl: {
                 type: String,
-                required: true
-            },
-            menuCategories: {
-                type: Array,
-                required: true
-            },
-            menuItems: {
-                type: Array,
                 required: true
             }
         }
