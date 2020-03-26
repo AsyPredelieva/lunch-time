@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Offers from '../views/Offers.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import OffersList from '../components/offers/OffersList.vue'
+import OfferDetails from '../components/offers/OfferDetails.vue'
 
 Vue.use(VueRouter)
 
@@ -13,12 +15,12 @@ const routes = [
         name: 'Home',
         component: Home
     },
-    {
-        path: '/offers',
-        name: 'Offers',
-        component: Offers
-        // children: [{ path: '/offers/:id', component: OfferItem }]
-    },
+    // {
+    //     path: '/offers',
+    //     name: 'Offers',
+    //     component: Offers,
+    //     children: [{ path: '/:name', component: OfferDetails }]
+    // },
     {
         path: '/login',
         name: 'Login',
@@ -28,10 +30,19 @@ const routes = [
         path: '/register',
         name: 'Register',
         component: Register
+    },
+    {
+        path: '/offers/',
+        component: Offers,
+        children: [
+            { path: '', component: OffersList },
+            { path: ':name', component: OfferDetails }
+        ]
     }
 ]
 
 const router = new VueRouter({
+    mode: 'history',
     routes
 })
 
