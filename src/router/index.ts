@@ -37,7 +37,7 @@ const routes = [
         component: Offers,
         children: [
             { path: '', component: OffersList },
-            { path: ':id', component: OfferDetails }
+            { path: ':name', component: OfferDetails }
         ]
     },
     {

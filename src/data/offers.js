@@ -12,11 +12,13 @@ export const offers = [
                     {
                         id: '111',
                         name: 'Chicken Soup',
+                        count: 0,
                         price: '2.80'
                     },
                     {
                         id: '112',
                         name: 'Tomato Soup',
+                        count: 0,
                         price: '2.50'
                     }
                 ]
@@ -29,11 +31,13 @@ export const offers = [
                     {
                         id: '121',
                         name: 'Chicken kebap',
+                        count: 0,
                         price: '4.20'
                     },
                     {
                         id: '122',
                         name: 'Spaghetti Carbonara',
+                        count: 0,
                         price: '4.50'
                     }
                 ]
@@ -46,11 +50,13 @@ export const offers = [
                     {
                         id: '131',
                         name: 'Cream Caramel',
+                        count: 0,
                         price: '4.20'
                     },
                     {
                         id: '132',
                         name: 'Tiramisu',
+                        count: 0,
                         price: '4.50'
                     }
                 ]
@@ -70,11 +76,13 @@ export const offers = [
                     {
                         id: '211',
                         name: 'Chicken Soup',
+                        count: 0,
                         price: '2.80'
                     },
                     {
                         id: '212',
                         name: 'Tarator',
+                        count: 0,
                         price: '2.50'
                     }
                 ]
@@ -87,11 +95,13 @@ export const offers = [
                     {
                         id: '221',
                         name: 'Chicken with potatos',
+                        count: 0,
                         price: '4.20'
                     },
                     {
                         id: '222',
                         name: 'Pork with rise and mushrooms',
+                        count: 0,
                         price: '4.50'
                     }
                 ]
@@ -104,11 +114,13 @@ export const offers = [
                     {
                         id: '231',
                         name: 'Homemade cake',
+                        count: 0,
                         price: '4.20'
                     },
                     {
                         id: '232',
                         name: 'Baklava',
+                        count: 0,
                         price: '4.50'
                     }
                 ]
@@ -128,11 +140,13 @@ export const offers = [
                     {
                         id: '311',
                         name: 'Chicken Soup',
+                        count: 0,
                         price: '2.80'
                     },
                     {
                         id: '312',
                         name: 'Tarator',
+                        count: 0,
                         price: '2.50'
                     }
                 ]
@@ -145,11 +159,13 @@ export const offers = [
                     {
                         id: '321',
                         name: 'Chicken with potatos',
+                        count: 0,
                         price: '4.20'
                     },
                     {
                         id: '322',
                         name: 'Pork with rise and mushrooms',
+                        count: 0,
                         price: '4.50'
                     }
                 ]
@@ -162,11 +178,13 @@ export const offers = [
                     {
                         id: '331',
                         name: 'Cream bruele',
+                        count: 0,
                         price: '4.20'
                     },
                     {
                         id: '332',
                         name: 'Macaroni na furna',
+                        count: 0,
                         price: '4.50'
                     }
                 ]
@@ -186,11 +204,13 @@ export const offers = [
                     {
                         id: '311',
                         name: 'Chicken Soup',
+                        count: 0,
                         price: '2.80'
                     },
                     {
                         id: '312',
                         name: 'Tarator',
+                        count: 0,
                         price: '2.50'
                     }
                 ]
@@ -203,11 +223,13 @@ export const offers = [
                     {
                         id: '321',
                         name: 'Chicken with potatos',
+                        count: 0,
                         price: '4.20'
                     },
                     {
                         id: '322',
                         name: 'Pork with rise and mushrooms',
+                        count: 0,
                         price: '4.50'
                     }
                 ]
@@ -220,11 +242,13 @@ export const offers = [
                     {
                         id: '331',
                         name: 'Cream bruele',
+                        count: 0,
                         price: '4.20'
                     },
                     {
                         id: '332',
                         name: 'Macaroni na furna',
+                        count: 0,
                         price: '4.50'
                     }
                 ]

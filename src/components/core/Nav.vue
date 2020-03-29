@@ -8,7 +8,7 @@
                 <router-link to="/offers">Offers</router-link>
                 <ul>
                     <li v-for="offer in offers" :key="offer.id">
-                        <router-link :to="`/offers/${offer.id}`">{{ offer.name }}</router-link>
+                        <router-link :to="`/offers/${offer.name}`">{{ offer.name }}</router-link>
                     </li>
                 </ul>
             </li>
