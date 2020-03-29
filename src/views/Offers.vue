@@ -1,6 +1,10 @@
 <template>
     <main class="container">
-        <router-view :offers-list="offers"></router-view>
+        <router-view
+            :offers-list="offers"
+            :orders-list="ordersList"
+            @onSubmitOrder="ordersList"
+        ></router-view>
     </main>
 </template>
 
@@ -11,8 +15,12 @@ export default {
     name: 'Offers',
     data() {
         return {
-            offers
+            offers,
+            ordersList: []
         }
+    },
+    mounted() {
+        console.log(this.ordersList)
     }
 }
 </script>

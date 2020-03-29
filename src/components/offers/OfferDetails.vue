@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="submitOrder">
+        <form @submit.prevent="submitOrder()">
             <h2>Today's menu in {{ currentOffer.name }}</h2>
             <ul class="offer-menu">
                 <li v-for="category in currentOffer.menuCategories" :key="category.id">
@@ -12,18 +12,11 @@
                                 <div class="form-field">
                                     <input
                                         type="text"
-                                        :placeholder="item.count"
+                                        placeholder="0"
                                         v-model="item.count"
+                                        :count-num="item.count"
                                     />
                                 </div>
-                                <!-- <template v-if="$v.$error">
-                                    <p class="error" v-if="!$v.required">
-                                        Please enter number of plates.
-                                    </p>
-                                    <p class="error" v-if="!$v.numberic">
-                                        Please enter number
-                                    </p>
-                                </template> -->
                                 <span class="price">{{ item.price }} lv</span>
                                 <button
                                     type="button"
@@ -40,21 +33,15 @@
             <template v-if="isAdded">
                 <div class="current-order">
                     <h3>I'll take for lunch:</h3>
-                    <ul class="order-list">
-                        <li v-for="(currOrder, index) in myOrder" :key="index">
-                            <ul>
-                                <li>
-                                    <span>{{ currOrder.name }}</span>
-                                    <div class="order-detail">
-                                        <span>{{ currOrder.count }}</span>
-                                        <span class="price">{{ currOrder.sum }}</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+                    <ul>
+                        <current-order
+                            v-for="(currOrder, index) in ordersList"
+                            :key="index"
+                            :curr-order="currOrder"
+                        ></current-order>
                     </ul>
                 </div>
-                <div class="total-price">Total sum: {{ totalSum }} lv</div>
+                <div class="total-price">Total sum: {{ totalSum | formatNumber }} lv</div>
                 <button class="cta-btn">Order</button>
             </template>
         </form>
@@ -62,21 +49,15 @@
 </template>
 
 <script>
-// import { validationMixin } from 'vuelidate'
-// import { required, numeric } from 'vuelidate/lib/validators'
+import CurrentOrder from './CurrentOrder'
 
 export default {
     name: 'OfferDetails',
-    props: ['offersList'],
-    // mixins: [validationMixin],
+    props: ['offersList', 'ordersList'],
     data() {
         return {
-            offerId: '',
-            myOrder: [],
-            currOrderSum: 0,
             totalSum: 0,
             isAdded: false
-            // count: 0
         }
     },
     computed: {
@@ -88,29 +69,38 @@ export default {
             return currOffer[0]
         }
     },
-    // validations: {
-    //     count: {
-    //         required,
-    //         numeric
-    //     }
-    // },
+    components: {
+        CurrentOrder
+    },
     methods: {
         addItem(name, count, price) {
+            count = Number(count)
+            price = Number(price)
+            this.totalSum = 0
+
             this.isAdded = true
-            this.currOrderSum = Number(count) * Number(price)
 
-            this.myOrder.push({
-                name,
-                count,
-                sum: this.currOrderSum
-            })
+            if (this.ordersList.some(e => e.name === name)) {
+                this.ordersList.map(order => {
+                    if (order.name === name) {
+                        order.count = count
+                        order.sum = order.count * price
+                    }
+                })
+            } else {
+                this.ordersList.push({
+                    name,
+                    count,
+                    sum: count * price
+                })
+            }
 
-            this.currOrderSum += this.currOrderSum
-            this.totalSum = this.currOrderSum.toFixed(2)
+            this.ordersList.map(el => (this.totalSum += el.sum))
         },
-
         submitOrder() {
-            console.log('order')
+            console.log(this.ordersList)
+            this.$emit('onSubmitOrder', this.ordersList)
+            this.$router.push('/offers')
         }
     }
 }
@@ -152,25 +142,12 @@ export default {
         flex-grow: 1;
         flex-basis: 0;
     }
-
-    .error {
-        font-size: 11px;
-        padding: 2px;
-    }
 }
 
 .current-order {
-    font-size: 18px;
     margin-top: 60px;
     padding: 20px 0 10px;
     border-top: 1px solid rgba(33, 147, 208, 0.3);
-
-    .price {
-        width: 80px;
-        margin: 0 0 0 40px;
-        font-weight: 500;
-        text-align: right;
-    }
 }
 
 .total-price {
