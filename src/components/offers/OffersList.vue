@@ -19,11 +19,6 @@ export default {
     props: ['offersList'],
     components: {
         OfferItem
-    },
-    methods: {
-        getOffer(offerId) {
-            this.$root.$emit('get-offer', offerId)
-        }
     }
 }
 </script>

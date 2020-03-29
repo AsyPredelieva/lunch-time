@@ -4,7 +4,7 @@
         <div class="img-container">
             <img :src="offerItem.imgUrl" :alt="offerItem.name" />
         </div>
-        <router-link :to="`/offers/${offerItem.name}`" class="cta-btn">Get Menu</router-link>
+        <router-link :to="`/offers/${offerItem.id}`" class="cta-btn">Get Menu</router-link>
     </li>
 </template>
 
@@ -23,11 +23,7 @@ export default {
             }
         }
     },
-    methods: {
-        getOffer(offerId) {
-            this.$root.$emit('get-offer', offerId)
-        }
-    }
+    methods: {}
 }
 </script>
 

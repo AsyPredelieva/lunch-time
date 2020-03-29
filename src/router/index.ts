@@ -6,6 +6,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import OffersList from '../components/offers/OffersList.vue'
 import OfferDetails from '../components/offers/OfferDetails.vue'
+import NotFound from '../components/core/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -36,8 +37,13 @@ const routes = [
         component: Offers,
         children: [
             { path: '', component: OffersList },
-            { path: ':name', component: OfferDetails }
+            { path: ':id', component: OfferDetails }
         ]
+    },
+    {
+        path: '*',
+        name: 'NotFound',
+        component: NotFound
     }
 ]
 
