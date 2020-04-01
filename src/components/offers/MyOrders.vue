@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>My orders</h2>
-        <current-order></current-order>
+        <current-order v-for="(order, index) in ordersList" :key="index"></current-order>
     </div>
 </template>
 
@@ -9,22 +9,7 @@
 import CurrentOrder from './CurrentOrder'
 
 export default {
-    props: {
-        currOrder: {
-            name: {
-                type: String,
-                required: true
-            },
-            count: {
-                type: Number,
-                required: true
-            },
-            sum: {
-                type: Number,
-                required: true
-            }
-        }
-    },
+    props: ['ordersList'],
     components: {
         CurrentOrder
     }

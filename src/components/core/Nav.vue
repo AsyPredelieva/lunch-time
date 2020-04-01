@@ -2,7 +2,7 @@
     <nav>
         <ul>
             <li>
-                <router-link to="/">Home</router-link>
+                <router-link to="/" exact>Home</router-link>
             </li>
             <li class="sub-nav">
                 <router-link to="/offers">Offers</router-link>
@@ -64,6 +64,7 @@ nav ul {
             transition: all 300ms linear;
 
             &.router-link-exact-active,
+            &.router-link-active,
             &:hover {
                 color: #79c150;
             }

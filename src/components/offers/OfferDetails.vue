@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="submitOrder()">
+        <form @submit.prevent="submitOrder">
             <h2>Today's menu in {{ currentOffer.name }}</h2>
             <ul class="offer-menu">
                 <li v-for="category in currentOffer.menuCategories" :key="category.id">
@@ -10,12 +10,7 @@
                             <span class="name">{{ item.name }}</span>
                             <div class="order-detail">
                                 <div class="form-field">
-                                    <input
-                                        type="text"
-                                        placeholder="0"
-                                        v-model="item.count"
-                                        :count-num="item.count"
-                                    />
+                                    <input type="text" placeholder="0" v-model="item.count" />
                                 </div>
                                 <span class="price">{{ item.price }} lv</span>
                                 <button
@@ -96,11 +91,13 @@ export default {
             }
 
             this.ordersList.map(el => (this.totalSum += el.sum))
+            this.offersList.map(el =>
+                el.menuCategories.map(i => i.menuItems.map(e => (e.count = 0)))
+            )
         },
         submitOrder() {
             console.log(this.ordersList)
             this.$emit('onSubmitOrder', this.ordersList)
-            this.$router.push('/offers')
         }
     }
 }
