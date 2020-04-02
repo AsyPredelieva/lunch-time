@@ -119,12 +119,12 @@
 </template>
 
 <script>
+import { registerUser } from '../services/authServices'
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength, alphaNum, sameAs } from 'vuelidate/lib/validators'
 
 export default {
     name: 'Register',
-    mixins: [validationMixin],
     data() {
         return {
             name: '',
@@ -135,6 +135,7 @@ export default {
             repeatPassword: ''
         }
     },
+    mixins: [validationMixin, registerUser],
     validations: {
         name: {
             required,
@@ -167,7 +168,14 @@ export default {
             if (this.$v.$invalid) {
                 return
             }
-            console.log('Form was submitted!')
+
+            this.register(
+                this.name,
+                this.lastName,
+                this.department,
+                this.email,
+                this.password
+            ).then(() => this.$router.push('/'))
         }
     }
 }

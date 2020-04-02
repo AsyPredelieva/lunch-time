@@ -12,27 +12,34 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <router-link to="/login">Login</router-link>
-            </li>
-            <li>
-                <router-link to="/register">Register</router-link>
-            </li>
+            <template v-if="isAuthenticated">
+                <li>
+                    <router-link to="#">Logout</router-link>
+                </li>
+            </template>
+            <template v-else>
+                <li>
+                    <router-link to="/login">Login</router-link>
+                </li>
+                <li>
+                    <router-link to="/register">Register</router-link>
+                </li>
+            </template>
         </ul>
     </nav>
 </template>
 
 <script>
-import { offers } from '../../data/offers'
+import { offers } from "../../data/offers";
 
 export default {
-    name: 'Nav',
+    name: "Nav",
     data() {
         return {
             offers
-        }
+        };
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -48,7 +55,7 @@ nav ul {
         position: relative;
 
         &:not(:last-child):after {
-            content: '';
+            content: "";
             width: 1px;
             height: 35px;
             background: rgba(33, 147, 208, 0.3);
