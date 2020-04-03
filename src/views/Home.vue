@@ -10,9 +10,9 @@
             </ul>
         </div>
 
-        <Quotes />
+        <Quotes v-if="isAuthenticated" />
 
-        <div class="info-container">
+        <div class="info-container" v-if="isAuthenticated">
             <div class="container">
                 <h2>Healthy Eating</h2>
 
@@ -34,14 +34,13 @@ import Teaser from '../components/home/Teaser'
 import Quotes from '../components/home/Quotes'
 import Article from '../components/home/Article'
 import { teasers } from '../data/teasers'
-// import { articles } from '../data/articles'
+import { articleService } from '../services/articleService'
 
 export default {
     name: 'Home',
     data() {
         return {
             teasers,
-            articles: [],
             authToken: ''
         }
     },
@@ -51,24 +50,7 @@ export default {
         Quotes,
         Article
     },
-    methods: {
-        getArticles() {
-            // const appKey = 'kid_Sy8OICVII'
-            // const appSecret = 'f5f97678c4f144348a8ff2ec30c54e4d'
-            // fetch(`https://baas.kinvey.com/appdata/${appKey}/articles`, {
-            //     method: 'GET',
-            //     headers: {
-            //         Authorization: `Kinvey ${this.authToken}`,
-            //         'Content-Type': 'application/json'
-            //     }
-            // })
-            //     .then(res => res.json())
-            //     .then(data => (this.articles = data))
-        }
-    },
-    mounted() {
-        // this.getArticles()
-    }
+    mixins: [articleService]
 }
 </script>
 
