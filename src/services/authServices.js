@@ -1,24 +1,33 @@
 import config from '../config/config'
 
+const authString = btoa(`${config.appKey}:${config.appSecret}`)
+
 const loginUser = user => {
-    localStorage.setItem('name', user.name)
+    localStorage.setItem('username', user.username)
     localStorage.setItem('authtoken', user.authtoken)
+
+    return user
 }
 
 export const authService = {
+    data() {
+        return {
+            authtoken: localStorage.getItem('authtoken')
+        }
+    },
     computed: {
         isAuthenticated() {
-            return localStorage.getItem('authtoken') !== null
+            return this.authtoken !== null
         }
+    },
+    created() {
+        this.$root.$on('logged-in', authtoken => (this.authtoken = authtoken))
     }
 }
 
-export const registerUser = {
+export const authenticate = {
     methods: {
         register(name, lastName, department, email, password) {
-            const authString = btoa(`${config.appKey}:${config.appSecret}`)
-
-            this.$http.defaults.headers.post['Authorization'] = `Basic ${authString}`
             return this.$http
                 .post(`/user/${config.appKey}`, {
                     name,
@@ -29,10 +38,26 @@ export const registerUser = {
                 })
                 .then(res =>
                     loginUser({
-                        name: res.data.name,
+                        username: res.data.name,
+                        authtoken: res.data._kmd.authtoken
+                    })
+                )
+        },
+        login(username, password) {
+            return this.$http
+                .post(`/user/${config.appKey}/login`, {
+                    username,
+                    password
+                })
+                .then(res =>
+                    loginUser({
+                        username: res.data.username,
                         authtoken: res.data._kmd.authtoken
                     })
                 )
         }
+    },
+    created() {
+        this.$http.defaults.headers.post['Authorization'] = `Basic ${authString}`
     }
 }

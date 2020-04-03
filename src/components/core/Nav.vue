@@ -30,16 +30,16 @@
 </template>
 
 <script>
-import { offers } from "../../data/offers";
+import { offers } from '../../data/offers'
 
 export default {
-    name: "Nav",
+    name: 'Nav',
     data() {
         return {
             offers
-        };
+        }
     }
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -55,7 +55,7 @@ nav ul {
         position: relative;
 
         &:not(:last-child):after {
-            content: "";
+            content: '';
             width: 1px;
             height: 35px;
             background: rgba(33, 147, 208, 0.3);

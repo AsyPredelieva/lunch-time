@@ -80,9 +80,7 @@
                             />
                         </div>
                         <template v-if="$v.password.$error">
-                            <p class="error" v-if="!$v.password.required">
-                                Password is required.
-                            </p>
+                            <p class="error" v-if="!$v.password.required">Password is required.</p>
                             <p
                                 class="error"
                                 v-else-if="!$v.password.minLegth || !$v.password.maxLength"
@@ -109,9 +107,7 @@
                     </div>
                 </div>
                 <div class="grid-full">
-                    <button :disabled="$v.$invalid" class="cta-btn">
-                        Submit
-                    </button>
+                    <button :disabled="$v.$invalid" class="cta-btn">Submit</button>
                 </div>
             </form>
         </div>
@@ -119,7 +115,7 @@
 </template>
 
 <script>
-import { registerUser } from '../services/authServices'
+import { authenticate } from '../services/authServices'
 import { validationMixin } from 'vuelidate'
 import { required, email, minLength, maxLength, alphaNum, sameAs } from 'vuelidate/lib/validators'
 
@@ -135,7 +131,7 @@ export default {
             repeatPassword: ''
         }
     },
-    mixins: [validationMixin, registerUser],
+    mixins: [validationMixin, authenticate],
     validations: {
         name: {
             required,
