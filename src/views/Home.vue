@@ -40,8 +40,7 @@ export default {
     name: 'Home',
     data() {
         return {
-            teasers,
-            authToken: ''
+            teasers
         }
     },
     components: {

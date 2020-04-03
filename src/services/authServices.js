@@ -21,16 +21,16 @@ export const authService = {
         }
     },
     created() {
-        this.$root.$on('logged-in', authtoken => (this.authtoken = authtoken))
+        this.$root.$on('auth', authtoken => (this.authtoken = authtoken))
     }
 }
 
 export const authenticate = {
     methods: {
-        register(name, lastName, department, email, password) {
+        register(username, lastName, department, email, password) {
             return this.$http
                 .post(`/user/${config.appKey}`, {
-                    name,
+                    username,
                     lastName,
                     department,
                     email,
@@ -38,7 +38,7 @@ export const authenticate = {
                 })
                 .then(res =>
                     loginUser({
-                        username: res.data.name,
+                        username: res.data.username,
                         authtoken: res.data._kmd.authtoken
                     })
                 )

@@ -6,15 +6,20 @@
                 <div class="grid-half">
                     <div class="form-row">
                         <div class="form-field">
-                            <label for="Name">Name</label>
-                            <input type="text" id="name" v-model="name" @blur="$v.name.$touch" />
+                            <label for="Name">Username</label>
+                            <input
+                                type="text"
+                                id="name"
+                                v-model="username"
+                                @blur="$v.username.$touch"
+                            />
                         </div>
-                        <template v-if="$v.name.$error">
-                            <p class="error" v-if="!$v.name.required">
-                                You have to enter your name.
+                        <template v-if="$v.username.$error">
+                            <p class="error" v-if="!$v.username.required">
+                                You have to enter your username.
                             </p>
-                            <p class="error" v-else-if="!$v.name.minLegth">
-                                Min length of your name should be more than 2 symbols.
+                            <p class="error" v-else-if="!$v.username.minLegth">
+                                Min length of your username should be more than 2 symbols.
                             </p>
                         </template>
                     </div>
@@ -123,7 +128,7 @@ export default {
     name: 'Register',
     data() {
         return {
-            name: '',
+            username: '',
             lastName: '',
             department: '',
             email: '',
@@ -133,7 +138,7 @@ export default {
     },
     mixins: [validationMixin, authenticate],
     validations: {
-        name: {
+        username: {
             required,
             minLegth: minLength(2)
         },
@@ -165,13 +170,11 @@ export default {
                 return
             }
 
-            this.register(
-                this.name,
-                this.lastName,
-                this.department,
-                this.email,
-                this.password
-            ).then(() => this.$router.push('/'))
+            this.register(this.username, this.lastName, this.department, this.email, this.password)
+                .then(user => {
+                    this.$root.$emit('auth', user.authtoken)
+                })
+                .then(() => this.$router.push('/'))
         }
     }
 }

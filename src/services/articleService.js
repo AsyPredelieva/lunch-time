@@ -9,9 +9,11 @@ export const articleService = {
         }
     },
     created() {
-        this.$http.defaults.headers['Authorization'] = `Kinvey ${getAuthToken()}`
-        this.$http
-            .get(`/appdata/${config.appKey}/articles`)
-            .then(({ data }) => (this.articles = data))
+        if (this.isAuthenticated) {
+            this.$http.defaults.headers['Authorization'] = `Kinvey ${getAuthToken()}`
+            this.$http
+                .get(`/appdata/${config.appKey}/articles`)
+                .then(({ data }) => (this.articles = data))
+        }
     }
 }
