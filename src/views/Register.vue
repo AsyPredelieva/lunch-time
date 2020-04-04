@@ -170,11 +170,16 @@ export default {
                 return
             }
 
-            this.register(this.username, this.lastName, this.department, this.email, this.password)
-                .then(user => {
-                    this.$root.$emit('auth', user.authtoken)
-                })
-                .then(() => this.$router.push('/'))
+            this.register(
+                this.username,
+                this.lastName,
+                this.department,
+                this.email,
+                this.password
+            ).then(user => {
+                this.$root.$emit('auth', user.authtoken)
+                this.$router.push('/')
+            })
         }
     }
 }

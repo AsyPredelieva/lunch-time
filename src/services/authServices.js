@@ -42,6 +42,7 @@ export const authenticate = {
                         authtoken: res.data._kmd.authtoken
                     })
                 )
+                .catch(err => console.log(err))
         },
         login(username, password) {
             return this.$http
@@ -55,6 +56,7 @@ export const authenticate = {
                         authtoken: res.data._kmd.authtoken
                     })
                 )
+                .catch(err => console.log(err))
         }
     },
     created() {
