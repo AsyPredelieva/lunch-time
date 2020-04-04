@@ -39,9 +39,10 @@ const routes = [
     {
         path: '/offers/',
         component: Offers,
+        beforeEnter: authGuard,
         children: [
             { path: '', component: OffersList },
-            { path: ':name', component: OfferDetails },
+            { path: ':name', component: OfferDetails, beforeEnter: authGuard },
             { path: '/myOrders', component: MyOrders, beforeEnter: authGuard }
         ]
     },

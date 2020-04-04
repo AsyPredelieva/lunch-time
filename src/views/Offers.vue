@@ -9,19 +9,16 @@
 </template>
 
 <script>
-import { offers } from '../data/offers'
+import { offerService } from '../services/offerService'
 
 export default {
     name: 'Offers',
     data() {
         return {
-            offers,
             ordersList: []
         }
     },
-    mounted() {
-        console.log(this.ordersList)
-    }
+    mixins: [offerService]
 }
 </script>
 
