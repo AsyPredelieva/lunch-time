@@ -11,6 +11,13 @@ import NotFound from '../components/core/NotFound.vue'
 
 Vue.use(VueRouter)
 
+function anonymousGuard(to, from, next) {
+    localStorage.getItem('authtoken') !== null ? next('/') : next()
+}
+function authGuard(to, from, next) {
+    localStorage.getItem('authtoken') === null ? next('/login') : next()
+}
+
 const routes = [
     {
         path: '/',
@@ -20,12 +27,14 @@ const routes = [
     {
         path: '/login',
         name: 'Login',
-        component: Login
+        component: Login,
+        beforeEnter: anonymousGuard
     },
     {
         path: '/register',
         name: 'Register',
-        component: Register
+        component: Register,
+        beforeEnter: anonymousGuard
     },
     {
         path: '/offers/',
@@ -33,7 +42,7 @@ const routes = [
         children: [
             { path: '', component: OffersList },
             { path: ':name', component: OfferDetails },
-            { path: '/myOrders', component: MyOrders }
+            { path: '/myOrders', component: MyOrders, beforeEnter: authGuard }
         ]
     },
     {
