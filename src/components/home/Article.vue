@@ -5,10 +5,7 @@
             {{ articleItem.description[0] }}
         </p>
         <ul class="bullet" v-else-if="articleItem.description.length > 1">
-            <li
-                v-for="(descriptionItem, index) in articleItem.description"
-                :key="index"
-            >
+            <li v-for="(descriptionItem, index) in articleItem.description" :key="index">
                 {{ descriptionItem }}
             </li>
         </ul>

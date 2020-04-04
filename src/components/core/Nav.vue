@@ -4,15 +4,20 @@
             <li>
                 <router-link to="/" exact>Home</router-link>
             </li>
-            <li class="sub-nav">
-                <router-link to="/offers">Offers</router-link>
-                <ul>
-                    <li v-for="offer in offers" :key="offer.id">
-                        <router-link :to="`/offers/${offer.name}`">{{ offer.name }}</router-link>
-                    </li>
-                </ul>
-            </li>
             <template v-if="isAuthenticated">
+                <li class="sub-nav">
+                    <router-link to="/offers">Offers</router-link>
+                    <ul>
+                        <li v-for="offer in offers" :key="offer.id">
+                            <router-link :to="`/offers/${offer.name}`">{{
+                                offer.name
+                            }}</router-link>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sub-nav">
+                    <router-link to="/myOrders">My orders</router-link>
+                </li>
                 <li>
                     <a @click="onLogout" class="logout">Logout</a>
                 </li>
