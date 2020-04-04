@@ -14,7 +14,7 @@
             </li>
             <template v-if="isAuthenticated">
                 <li>
-                    <router-link to="#">Logout</router-link>
+                    <a @click="onLogout" class="logout">Logout</a>
                 </li>
             </template>
             <template v-else>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+// import { authenticate } from '../../services/authServices'
 import { offers } from '../../data/offers'
 
 export default {
@@ -37,6 +38,15 @@ export default {
     data() {
         return {
             offers
+        }
+    },
+    // mixins: [authenticate],
+    methods: {
+        onLogout() {
+            localStorage.removeItem('username')
+            localStorage.removeItem('authtoken')
+
+            this.$root.$emit('auth', null)
         }
     }
 }
@@ -74,6 +84,10 @@ nav ul {
             &.router-link-active,
             &:hover {
                 color: #79c150;
+            }
+
+            &.logout {
+                cursor: pointer;
             }
         }
 
