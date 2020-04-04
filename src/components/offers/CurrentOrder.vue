@@ -1,14 +1,10 @@
 <template>
-    <li class="current-order-item">
-        <ul>
-            <li>
-                <span slot="my-current-order">{{ currOrder.name }}</span>
-                <div class="order-detail">
-                    <span>{{ currOrder.count }}</span>
-                    <span class="price">{{ currOrder.sum | formatNumber }} lv</span>
-                </div>
-            </li>
-        </ul>
+    <li>
+        <span slot="my-current-order">{{ currOrder.name }}</span>
+        <div class="order-detail">
+            <span>{{ currOrder.count }}</span>
+            <span class="price">{{ currOrder.sum | formatNumber }} lv</span>
+        </div>
     </li>
 </template>
 
@@ -37,15 +33,6 @@ export default {
 <style scoped lang="scss">
 .order-detail {
     display: flex;
-}
-
-li > ul > li {
-    display: flex;
-    flex-grow: 1;
-    flex-basis: 0;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 17px;
 }
 
 .price {
