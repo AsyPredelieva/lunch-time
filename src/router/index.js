@@ -6,7 +6,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import OffersList from '../components/offers/OffersList.vue'
 import OfferDetails from '../components/offers/OfferDetails.vue'
-import MyOrders from '../components/offers/MyOrders.vue'
+import OrdersList from '../components/offers/OrdersList.vue'
 import NotFound from '../components/core/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -43,7 +43,7 @@ const routes = [
         children: [
             { path: '', component: OffersList },
             { path: ':name', component: OfferDetails, beforeEnter: authGuard },
-            { path: '/myOrders', component: MyOrders, beforeEnter: authGuard }
+            { path: '/orders', component: OrdersList, beforeEnter: authGuard }
         ]
     },
     {

@@ -1,7 +1,7 @@
 <template>
-    <div class="my-orders-container">
+    <div class="all-orders-container">
         <div class="container">
-            <h2>My orders</h2>
+            <h2>All orders</h2>
             <ul>
                 <li v-for="(order, index) in myOrders" :key="index">
                     <div class="current-order">
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.my-orders-container {
+.all-orders-container {
     padding: 40px 0;
     background-image: url('../../assets/myorders-bckgr.png');
     background-position: bottom left -20%;

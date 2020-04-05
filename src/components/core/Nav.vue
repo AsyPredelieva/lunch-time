@@ -16,7 +16,7 @@
                     </ul>
                 </li>
                 <li class="sub-nav">
-                    <router-link to="/myOrders">My orders</router-link>
+                    <router-link to="/orders">Orders</router-link>
                 </li>
                 <li>
                     <a @click="onLogout" class="logout">Logout</a>
