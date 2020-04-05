@@ -18,7 +18,7 @@
 
                 <section class="grid-container">
                     <Article
-                        v-for="article in articles.slice(0, 2)"
+                        v-for="article in articles"
                         :key="article.id"
                         :article-item="article"
                     ></Article>
