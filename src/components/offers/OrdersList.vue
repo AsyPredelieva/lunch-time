@@ -3,19 +3,19 @@
         <div class="container">
             <h2>All orders</h2>
             <ul>
-                <li v-for="(order, index) in myOrders" :key="index">
+                <li v-for="(currOrder, index) in orderList" :key="index">
                     <div class="current-order">
-                        <h3>Order at {{ order._kmd.lmt | formatDate }}</h3>
+                        <h3>Order at {{ currOrder._kmd.lmt | formatDate }}</h3>
                         <ul>
                             <current-order
-                                v-for="(orderItem, i) in order.orders"
+                                v-for="(orderItem, i) in currOrder.order"
                                 :key="i"
                                 :curr-order="orderItem"
                             ></current-order>
                         </ul>
                         <div class="total-price">
                             <strong>Total sum:</strong>
-                            <strong>{{ calcSum(order.orders) | formatNumber }} lv</strong>
+                            <strong>{{ currOrder.sum | formatNumber }} lv</strong>
                         </div>
                     </div>
                 </li>
@@ -32,17 +32,6 @@ export default {
     mixins: [orderListService],
     components: {
         CurrentOrder
-    },
-    data() {
-        return {
-            sum: 0,
-            arr: []
-        }
-    },
-    methods: {
-        calcSum(currOrder) {
-            return currOrder.map(e => e.count * e.sum).reduce((a, b) => a + b)
-        }
     }
 }
 </script>

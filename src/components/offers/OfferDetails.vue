@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div v-if="!currentOffer">Loading...</div>
         <div v-else>
             <form @submit.prevent="submitOrder()">
@@ -101,8 +101,8 @@ export default {
             )
         },
         submitOrder() {
-            this.addOrder(this.ordersList).then(() => {
-                this.$router.push('/myOrders')
+            this.addOrder(this.ordersList, this.totalSum).then(() => {
+                this.$router.push('/orders')
             })
         }
     }

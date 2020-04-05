@@ -5,7 +5,7 @@ const getAuthToken = () => localStorage.getItem('authtoken')
 export const orderListService = {
     data() {
         return {
-            orders: []
+            orderList: []
         }
     },
     created() {
@@ -13,7 +13,7 @@ export const orderListService = {
             this.$http.defaults.headers['Authorization'] = `Kinvey ${getAuthToken()}`
             this.$http.get(`/appdata/${config.appKey}/orders`).then(({ data }) => {
                 data.sort((a, b) => new Date(b._kmd.lmt) - new Date(a._kmd.lmt))
-                this.orders = data
+                this.orderList = data
             })
         }
     }

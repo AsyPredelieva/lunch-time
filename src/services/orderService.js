@@ -4,13 +4,13 @@ const getAuthToken = () => localStorage.getItem('authtoken')
 
 export const orderService = {
     methods: {
-        addOrder(orders) {
+        addOrder(order, sum) {
             this.$http.defaults.headers['Authorization'] = `Kinvey ${getAuthToken()}`
             return this.$http
                 .post(`/appdata/${config.appKey}/orders`, {
-                    orders
+                    order,
+                    sum
                 })
-                .then(data => console.log(data))
                 .catch(err => console.log(err))
         }
     }
