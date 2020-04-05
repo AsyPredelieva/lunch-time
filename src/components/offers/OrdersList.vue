@@ -26,10 +26,10 @@
 
 <script>
 import CurrentOrder from './CurrentOrder'
-import { myOrderService } from '../../services/myOrderService'
+import { orderListService } from '../../services/orderListService'
 
 export default {
-    mixins: [myOrderService],
+    mixins: [orderListService],
     components: {
         CurrentOrder
     },
