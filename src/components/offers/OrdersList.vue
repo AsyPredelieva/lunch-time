@@ -55,12 +55,14 @@ export default {
 
 <style scoped lang="scss">
 .all-orders-container {
+    width: 100%;
+    height: 100%;
     padding: 40px 0;
-    background-image: url('../../assets/myorders-bckgr.png');
-    background-position: bottom left -20%;
+    background-image: url('../../assets/orders-bckgr_1.png'), url('../../assets/orders-bckgr_4.png'),
+        url('../../assets/orders-bckgr_2.png'), url('../../assets/orders-bckgr_5.png');
+    background-position: top right, bottom 20% left, top 10% left, bottom right, top 75% left;
     background-repeat: no-repeat;
-    background-size: content;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-size: 30%, 35%, 30%, 45%, 25%;
 }
 
 .current-order {
