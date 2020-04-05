@@ -1,52 +1,58 @@
 <template>
-    <div class="container">
-        <div v-if="!currentOffer">
-            <Loader />
-        </div>
-        <div v-else>
-            <form @submit.prevent="submitOrder()">
-                <h2>Today's menu in {{ currentOffer.name }}</h2>
-                <ul class="offer-menu">
-                    <li v-for="category in currentOffer.menuCategories" :key="category.id">
-                        <h3>{{ category.name }}</h3>
-                        <ul>
-                            <li v-for="item in category.menuItems" :key="item.id">
-                                <span class="name">{{ item.name }}</span>
-                                <div class="order-detail">
-                                    <div class="form-field">
-                                        <input type="text" placeholder="0" v-model="item.count" />
+    <div class="offer-details">
+        <div class="container">
+            <div v-if="!currentOffer">
+                <Loader />
+            </div>
+            <div v-else>
+                <form @submit.prevent="submitOrder()">
+                    <h2>Today's menu in {{ currentOffer.name }}</h2>
+                    <ul class="offer-menu">
+                        <li v-for="category in currentOffer.menuCategories" :key="category.id">
+                            <h3>{{ category.name }}</h3>
+                            <ul>
+                                <li v-for="item in category.menuItems" :key="item.id">
+                                    <span class="name">{{ item.name }}</span>
+                                    <div class="order-detail">
+                                        <div class="form-field">
+                                            <input
+                                                type="text"
+                                                placeholder="0"
+                                                v-model="item.count"
+                                            />
+                                        </div>
+                                        <span class="price">{{ item.price }} lv</span>
+                                        <button
+                                            type="button"
+                                            class="primary-button"
+                                            @click="addItem(item.name, item.count, item.price)"
+                                        >
+                                            Add
+                                        </button>
                                     </div>
-                                    <span class="price">{{ item.price }} lv</span>
-                                    <button
-                                        type="button"
-                                        class="primary-button"
-                                        @click="addItem(item.name, item.count, item.price)"
-                                    >
-                                        Add
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <template v-if="isAdded">
-                    <div class="current-order">
-                        <h3>I'll take for lunch:</h3>
-                        <ul>
-                            <current-order
-                                v-for="(currOrder, index) in ordersList"
-                                :key="index"
-                                :curr-order-id="index"
-                                :curr-order="currOrder"
-                                @onRemove="removeItem"
-                                :is-shown="isShown"
-                            ></current-order>
-                        </ul>
-                    </div>
-                    <div class="total-price">Total sum: {{ totalSum | formatNumber }} lv</div>
-                    <button class="cta-btn">Order</button>
-                </template>
-            </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <template v-if="isAdded">
+                        <div class="current-order">
+                            <h3>I'll take for lunch:</h3>
+                            <ul>
+                                <current-order
+                                    v-for="(currOrder, index) in ordersList"
+                                    :key="index"
+                                    :curr-order-id="index"
+                                    :curr-order="currOrder"
+                                    @onRemove="removeItem"
+                                    :is-shown="isShown"
+                                ></current-order>
+                            </ul>
+                        </div>
+                        <div class="total-price">Total sum: {{ totalSum | formatNumber }} lv</div>
+                        <button class="cta-btn">Order</button>
+                    </template>
+                </form>
+            </div>
         </div>
     </div>
 </template>
@@ -128,6 +134,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.offer-details {
+    width: 100%;
+    height: 100%;
+    padding: 40px 0;
+    background-image: url('../../assets/offer-details-bckgr.png'),
+        url('../../assets/offer-details-bckgr_.png');
+    background-position: left top, right bottom 20%;
+    background-repeat: no-repeat;
+    background-size: 25%;
+}
+
 .offer-menu,
 .current-order {
     width: 570px;
