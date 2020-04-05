@@ -17,7 +17,9 @@
                                 <current-order
                                     v-for="(orderItem, i) in currOrder.order"
                                     :key="i"
+                                    :curr-order-id="i"
                                     :curr-order="orderItem"
+                                    :is-shown="isShown"
                                 ></current-order>
                             </ul>
                             <div class="total-price">
@@ -38,6 +40,11 @@ import CurrentOrder from './CurrentOrder'
 import { orderListService } from '../../services/orderListService'
 
 export default {
+    data() {
+        return {
+            isShown: false
+        }
+    },
     mixins: [orderListService],
     components: {
         Loader,

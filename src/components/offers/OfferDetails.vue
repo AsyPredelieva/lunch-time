@@ -36,7 +36,10 @@
                             <current-order
                                 v-for="(currOrder, index) in ordersList"
                                 :key="index"
+                                :curr-order-id="index"
                                 :curr-order="currOrder"
+                                @onRemove="removeItem"
+                                :is-shown="isShown"
                             ></current-order>
                         </ul>
                     </div>
@@ -59,7 +62,8 @@ export default {
     data() {
         return {
             totalSum: 0,
-            isAdded: false
+            isAdded: false,
+            isShown: true
         }
     },
     computed: {
@@ -103,6 +107,16 @@ export default {
             this.offersList.map(el =>
                 el.menuCategories.map(i => i.menuItems.map(e => (e.count = 0)))
             )
+        },
+        removeItem(currItemId) {
+            this.ordersList.splice(currItemId, 1)
+
+            this.totalSum = 0
+            this.ordersList.map(el => (this.totalSum += el.sum))
+
+            if (this.ordersList.length < 1) {
+                this.isAdded = false
+            }
         },
         submitOrder() {
             this.addOrder(this.ordersList, this.totalSum).then(() => {
