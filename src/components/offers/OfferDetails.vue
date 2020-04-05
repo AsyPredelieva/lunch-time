@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        <div v-if="!currentOffer">Loading...</div>
+        <div v-if="!currentOffer">
+            <Loader />
+        </div>
         <div v-else>
             <form @submit.prevent="submitOrder()">
                 <h2>Today's menu in {{ currentOffer.name }}</h2>
@@ -47,6 +49,7 @@
 </template>
 
 <script>
+import Loader from '../core/Loader'
 import CurrentOrder from './CurrentOrder'
 import { orderService } from '../../services/orderService'
 
@@ -70,6 +73,7 @@ export default {
     },
     mixins: [orderService],
     components: {
+        Loader,
         CurrentOrder
     },
     methods: {

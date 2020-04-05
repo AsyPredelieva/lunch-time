@@ -15,14 +15,18 @@
         <div class="info-container" v-if="isAuthenticated">
             <div class="container">
                 <h2>Healthy Eating</h2>
-
-                <section class="grid-container">
-                    <Article
-                        v-for="article in articles"
-                        :key="article.id"
-                        :article-item="article"
-                    ></Article>
-                </section>
+                <div v-if="!articles">
+                    <Loader />
+                </div>
+                <div v-else>
+                    <section class="grid-container">
+                        <Article
+                            v-for="article in articles"
+                            :key="article.id"
+                            :article-item="article"
+                        ></Article>
+                    </section>
+                </div>
             </div>
         </div>
     </main>
@@ -33,6 +37,7 @@ import Hero from '../components/home/Hero'
 import Teaser from '../components/home/Teaser'
 import Quotes from '../components/home/Quotes'
 import Article from '../components/home/Article'
+import Loader from '../components/core/Loader'
 import { teasers } from '../data/teasers'
 import { articleService } from '../services/articleService'
 
@@ -47,7 +52,8 @@ export default {
         Hero,
         Teaser,
         Quotes,
-        Article
+        Article,
+        Loader
     },
     mixins: [articleService]
 }

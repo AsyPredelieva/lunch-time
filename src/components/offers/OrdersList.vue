@@ -2,12 +2,17 @@
     <div class="all-orders-container">
         <div class="container">
             <h2>All orders</h2>
-            <div v-if="!orderList">Loading...</div>
+            <div v-if="!orderList">
+                <Loader />
+            </div>
             <div v-else>
                 <ul>
                     <li v-for="(currOrder, index) in orderList" :key="index">
                         <div class="current-order">
-                            <h3>Order at {{ currOrder._kmd.lmt | formatDate }}</h3>
+                            <h3>
+                                <span>Order</span>
+                                <span>{{ currOrder._kmd.lmt | formatDate }}</span>
+                            </h3>
                             <ul>
                                 <current-order
                                     v-for="(orderItem, i) in currOrder.order"
@@ -28,12 +33,14 @@
 </template>
 
 <script>
+import Loader from '../core/Loader'
 import CurrentOrder from './CurrentOrder'
 import { orderListService } from '../../services/orderListService'
 
 export default {
     mixins: [orderListService],
     components: {
+        Loader,
         CurrentOrder
     }
 }
@@ -60,6 +67,8 @@ export default {
     background: rgba(255, 255, 255, 0.9);
 
     h3 {
+        display: flex;
+        justify-content: space-between;
         padding-bottom: 10px;
         border-bottom: 1px solid rgba(33, 147, 208, 0.3);
     }
