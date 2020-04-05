@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="container">
         <h2>Get the best</h2>
         <ul class="offers">
             <offer-item

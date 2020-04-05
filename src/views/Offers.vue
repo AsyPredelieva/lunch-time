@@ -1,5 +1,5 @@
 <template>
-    <main class="container">
+    <main>
         <router-view
             :offers-list="offers"
             :orders-list="ordersList"

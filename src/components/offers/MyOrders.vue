@@ -1,23 +1,26 @@
 <template>
     <div class="my-orders-container">
-        <h2>My orders</h2>
-        <ul>
-            <li v-for="(order, index) in myOrders" :key="index">
-                <div class="current-order">
-                    <h3>Order at {{ order._kmd.lmt | formatDate }}</h3>
-                    <ul>
-                        <current-order
-                            v-for="(orderItem, i) in order.orders"
-                            :key="i"
-                            :curr-order="orderItem"
-                        ></current-order>
-                    </ul>
-                    <div class="total-price">
-                        Total sum: {{ calcSum(order.orders) | formatNumber }} lv
+        <div class="container">
+            <h2>My orders</h2>
+            <ul>
+                <li v-for="(order, index) in myOrders" :key="index">
+                    <div class="current-order">
+                        <h3>Order at {{ order._kmd.lmt | formatDate }}</h3>
+                        <ul>
+                            <current-order
+                                v-for="(orderItem, i) in order.orders"
+                                :key="i"
+                                :curr-order="orderItem"
+                            ></current-order>
+                        </ul>
+                        <div class="total-price">
+                            <strong>Total sum:</strong>
+                            <strong>{{ calcSum(order.orders) | formatNumber }} lv</strong>
+                        </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -46,9 +49,12 @@ export default {
 
 <style scoped lang="scss">
 .my-orders-container {
-    background-image: url('../../assets/info-bckgr.png'), url('../../assets/info-bckgr.png');
-    background-position: left -150% center, right -150% center;
+    padding: 40px 0;
+    background-image: url('../../assets/myorders-bckgr.png');
+    background-position: bottom left -20%;
     background-repeat: no-repeat;
+    background-size: content;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .current-order {
@@ -59,7 +65,7 @@ export default {
     text-align: left;
     border: 1px solid rgba(33, 147, 208, 0.3);
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.9);
 
     h3 {
         padding-bottom: 10px;
@@ -73,6 +79,13 @@ export default {
         justify-content: space-between;
         align-items: center;
         margin-bottom: 17px;
+    }
+
+    .total-price {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 10px;
+        border-top: 1px solid rgba(33, 147, 208, 0.3);
     }
 }
 </style>

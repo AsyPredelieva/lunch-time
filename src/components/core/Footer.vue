@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 footer {
     width: 100%;
     min-height: 200px;
@@ -35,6 +35,11 @@ footer {
     nav {
         display: inline-block;
         margin: 0 auto;
+
+        .sub-nav > ul {
+            top: -199px;
+            box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.2);
+        }
     }
 
     .logo-container {
