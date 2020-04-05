@@ -2,24 +2,27 @@
     <div class="all-orders-container">
         <div class="container">
             <h2>All orders</h2>
-            <ul>
-                <li v-for="(currOrder, index) in orderList" :key="index">
-                    <div class="current-order">
-                        <h3>Order at {{ currOrder._kmd.lmt | formatDate }}</h3>
-                        <ul>
-                            <current-order
-                                v-for="(orderItem, i) in currOrder.order"
-                                :key="i"
-                                :curr-order="orderItem"
-                            ></current-order>
-                        </ul>
-                        <div class="total-price">
-                            <strong>Total sum:</strong>
-                            <strong>{{ currOrder.sum | formatNumber }} lv</strong>
+            <div v-if="!orderList">Loading...</div>
+            <div v-else>
+                <ul>
+                    <li v-for="(currOrder, index) in orderList" :key="index">
+                        <div class="current-order">
+                            <h3>Order at {{ currOrder._kmd.lmt | formatDate }}</h3>
+                            <ul>
+                                <current-order
+                                    v-for="(orderItem, i) in currOrder.order"
+                                    :key="i"
+                                    :curr-order="orderItem"
+                                ></current-order>
+                            </ul>
+                            <div class="total-price">
+                                <strong>Total sum:</strong>
+                                <strong>{{ currOrder.sum | formatNumber }} lv</strong>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
