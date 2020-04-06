@@ -1,7 +1,10 @@
 <template>
     <header>
         <Logo />
-        <Nav />
+        <div class="nav-container">
+            <span class="welcome-box" v-if="isAuthenticated">Welcome, {{ usernamen }}</span>
+            <Nav />
+        </div>
     </header>
 </template>
 
@@ -29,4 +32,34 @@ header {
     border-bottom: 3px solid rgba(33, 147, 208, 0.3);
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
 }
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-box {
+    /* color: #53b2e4; */
+    font-size: 16px;
+    padding-right: 80px;
+    background: url('../../assets/welcome-icon.png') right center no-repeat;
+    background-size: 50px;
+    min-height: 71px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .welcome-box {
+    color: #53b2e4;
+    font-size: 16px;
+    padding-right: 200px;
+    background: url('../../assets/welcome-icon.png') right center no-repeat;
+    background-size: 170px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 </style>
