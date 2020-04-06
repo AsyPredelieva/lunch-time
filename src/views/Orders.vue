@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Loader from '../components/core/Loader'
+import Loader from '../components/common/Loader'
 import CurrentOrder from '../components/orders/CurrentOrder'
 import { orderListService } from '../services/orderListService'
 

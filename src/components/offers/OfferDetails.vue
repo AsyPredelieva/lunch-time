@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import Loader from '../core/Loader'
+import Loader from '../common/Loader'
 import CurrentOrder from '../orders/CurrentOrder'
 import { orderService } from '../../services/orderService'
 

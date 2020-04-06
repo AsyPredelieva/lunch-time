@@ -7,7 +7,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import OffersList from '../components/offers/OffersList.vue'
 import OfferDetails from '../components/offers/OfferDetails.vue'
-import NotFound from '../components/core/NotFound.vue'
+import NotFound from '../components/common/NotFound.vue'
 
 Vue.use(VueRouter)
 

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Loader from '../core/Loader'
+import Loader from '../common/Loader'
 import OfferItem from './OfferItem'
 
 export default {
