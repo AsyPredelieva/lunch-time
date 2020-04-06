@@ -2,11 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Offers from '../views/Offers.vue'
+import Orders from '../views/Orders.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import OffersList from '../components/offers/OffersList.vue'
 import OfferDetails from '../components/offers/OfferDetails.vue'
-import OrdersList from '../components/offers/OrdersList.vue'
 import NotFound from '../components/core/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -42,9 +42,14 @@ const routes = [
         beforeEnter: authGuard,
         children: [
             { path: '', component: OffersList },
-            { path: ':name', component: OfferDetails, beforeEnter: authGuard },
-            { path: '/orders', component: OrdersList, beforeEnter: authGuard }
+            { path: ':name', component: OfferDetails, beforeEnter: authGuard }
+            // { path: '/orders', component: OrdersList, beforeEnter: authGuard }
         ]
+    },
+    {
+        path: '/orders/',
+        component: Orders,
+        beforeEnter: authGuard
     },
     {
         path: '*',

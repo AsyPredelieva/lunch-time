@@ -59,7 +59,7 @@
 
 <script>
 import Loader from '../core/Loader'
-import CurrentOrder from './CurrentOrder'
+import CurrentOrder from '../orders/CurrentOrder'
 import { orderService } from '../../services/orderService'
 
 export default {
