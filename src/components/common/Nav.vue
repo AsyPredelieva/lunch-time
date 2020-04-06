@@ -36,16 +36,16 @@
 
 <script>
 import { authenticate } from '../../services/authServices'
-import { offers } from '../../data/offers'
+import { offerService } from '../../services/offerService'
 
 export default {
     name: 'Nav',
     data() {
         return {
-            offers
+            offersList: []
         }
     },
-    mixins: [authenticate],
+    mixins: [authenticate, offerService],
     methods: {
         onLogout() {
             localStorage.removeItem('username')
