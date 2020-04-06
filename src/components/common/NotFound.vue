@@ -13,5 +13,9 @@ export default {
 <style scoped lang="scss">
 .container {
     margin: 40px auto;
+    min-height: 430px;
+    height: 100%;
+    background: url(../../assets/not-found-bckgr.png) center center no-repeat;
+    background-size: contain;
 }
 </style>
