@@ -77,6 +77,7 @@ export default {
         submitLogin() {
             this.login(this.username, this.password).then(user => {
                 this.$root.$emit('auth', user.authtoken)
+                this.$root.$emit('username', user.username)
                 this.$router.push('/')
             })
         }

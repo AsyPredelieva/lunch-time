@@ -12,7 +12,8 @@ const loginUser = user => {
 export const authService = {
     data() {
         return {
-            authtoken: localStorage.getItem('authtoken')
+            authtoken: localStorage.getItem('authtoken'),
+            usernamen: localStorage.getItem('username')
         }
     },
     computed: {
@@ -22,6 +23,7 @@ export const authService = {
     },
     created() {
         this.$root.$on('auth', authtoken => (this.authtoken = authtoken))
+        this.$root.$on('username', username => (this.usernamen = username))
     }
 }
 

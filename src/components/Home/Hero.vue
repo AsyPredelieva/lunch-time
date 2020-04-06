@@ -50,7 +50,7 @@ export default {
 }
 
 .hero:after {
-    animation: shine ease-in 2s 2 reverse;
+    animation: shine ease-in 2s 3 reverse;
     animation-fill-mode: forwards;
     content: '';
     background: url('../../assets/shining.png') no-repeat;

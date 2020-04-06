@@ -52,6 +52,8 @@ export default {
             localStorage.removeItem('authtoken')
 
             this.$root.$emit('auth', null)
+            this.$root.$emit('username', null)
+
             this.$router.push('/login')
         }
     }
