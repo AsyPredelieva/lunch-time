@@ -52,12 +52,13 @@ export default {
             localStorage.removeItem('authtoken')
 
             this.$root.$emit('auth', null)
+            this.$router.push('/login')
         }
     }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 nav ul {
     min-height: 35px;
     list-style: none;
@@ -98,6 +99,7 @@ nav ul {
 
         &.sub-nav {
             position: relative;
+            z-index: 1;
 
             &:hover {
                 & > a {

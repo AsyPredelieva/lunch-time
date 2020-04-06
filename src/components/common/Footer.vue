@@ -36,9 +36,17 @@ footer {
         display: inline-block;
         margin: 0 auto;
 
-        .sub-nav > ul {
-            top: -199px;
-            box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.2);
+        ul li.sub-nav {
+            &:hover {
+                & > a {
+                    padding-top: 45px;
+                }
+            }
+
+            & > ul {
+                top: -199px;
+                box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.2);
+            }
         }
     }
 
