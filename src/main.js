@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import moment from 'moment'
+import VueParallaxJs from 'vue-parallax-js'
 import axiosPlugin from './plugins/axiosPlugin'
 import { authService } from './services/authServices'
 
@@ -19,6 +20,7 @@ Vue.filter('formatDate', function(value) {
     }
 })
 
+Vue.use(VueParallaxJs)
 Vue.use(axiosPlugin)
 Vue.mixin(authService)
 
