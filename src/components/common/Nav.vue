@@ -35,7 +35,7 @@
 </template>
 
 <script>
-// import { authenticate } from '../../services/authServices'
+import { authenticate } from '../../services/authServices'
 import { offers } from '../../data/offers'
 
 export default {
@@ -45,7 +45,7 @@ export default {
             offers
         }
     },
-    // mixins: [authenticate],
+    mixins: [authenticate],
     methods: {
         onLogout() {
             localStorage.removeItem('username')
