@@ -1,8 +1,14 @@
 import config from '../config/config'
 
 const getAuthToken = () => localStorage.getItem('authtoken')
+const user = localStorage.getItem('username')
 
 export const orderService = {
+    data() {
+        return {
+            orderList: []
+        }
+    },
     methods: {
         addOrder(order, sum) {
             this.$http.defaults.headers['Authorization'] = `Kinvey ${getAuthToken()}`
@@ -12,6 +18,16 @@ export const orderService = {
                     sum
                 })
                 .catch(err => console.log(err))
+        }
+    },
+    created() {
+        if (this.isAuthenticated) {
+            this.$http.defaults.headers['Authorization'] = `Kinvey ${getAuthToken()}`
+            console.log(user)
+            this.$http.get(`/appdata/${config.appKey}/orders`).then(({ data }) => {
+                data.sort((a, b) => new Date(b._kmd.lmt) - new Date(a._kmd.lmt))
+                this.orderList = data
+            })
         }
     }
 }

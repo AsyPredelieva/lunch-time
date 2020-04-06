@@ -37,7 +37,7 @@
 <script>
 import Loader from '../components/common/Loader'
 import CurrentOrder from '../components/orders/CurrentOrder'
-import { orderListService } from '../services/orderListService'
+import { orderService } from '../services/orderService'
 
 export default {
     data() {
@@ -45,7 +45,7 @@ export default {
             isShown: false
         }
     },
-    mixins: [orderListService],
+    mixins: [orderService],
     components: {
         Loader,
         CurrentOrder
