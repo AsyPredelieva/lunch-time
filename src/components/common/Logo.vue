@@ -10,9 +10,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .logo-container {
     width: 110px;
     margin: 5px 20px;
+    flex-shrink: 0;
 }
 </style>

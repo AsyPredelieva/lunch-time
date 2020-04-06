@@ -1,7 +1,7 @@
 export const teasers = [
     {
         id: 0,
-        title: 'Quick and easy',
+        title: 'Quickly and easily',
         description: 'find out the actual menus.',
         isQuick: true,
         isEasy: false,
@@ -9,7 +9,7 @@ export const teasers = [
     },
     {
         id: 1,
-        title: 'Fast and furious',
+        title: 'Simply and calmly',
         description: 'make your choice.',
         isQuick: false,
         isEasy: true,

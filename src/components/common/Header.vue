@@ -40,7 +40,6 @@ header {
 }
 
 .welcome-box {
-    /* color: #53b2e4; */
     font-size: 16px;
     padding-right: 80px;
     background: url('../../assets/welcome-icon.png') right center no-repeat;
@@ -50,16 +49,4 @@ header {
     justify-content: center;
     align-items: center;
 }
-
-/* .welcome-box {
-    color: #53b2e4;
-    font-size: 16px;
-    padding-right: 200px;
-    background: url('../../assets/welcome-icon.png') right center no-repeat;
-    background-size: 170px;
-    min-height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 </style>
