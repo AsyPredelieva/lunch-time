@@ -64,8 +64,6 @@ export default {
     transform: rotate(30deg);
 }
 
-/* Active state */
-
 .hero:active:after {
     opacity: 0;
 }
@@ -85,6 +83,17 @@ export default {
         opacity: 0;
         -webkit-transform: scale(0.1) rotate(0deg);
         transform: scale(0.1) rotate(0deg);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .hero {
+        background-position: center right 25%;
+
+        &:after {
+            display: none;
+        }
     }
 }
 </style>

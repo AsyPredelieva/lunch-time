@@ -221,6 +221,8 @@ img {
     width: 960px;
     max-width: 100%;
     margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
     text-align: center;
 }
 
@@ -254,4 +256,18 @@ img {
     width: calc(33.333% - 30px);
     flex-basis: calc(33.333% - 30px);
     margin: 0 15px;
+}
+
+.grid-small {
+    width: calc(25% - 30px);
+    flex-basis: calc(25% - 30px);
+    margin: 0 15px;
+}
+
+/* Responsive */
+@media screen and (max-width: 960px) {
+    .grid-small {
+        width: calc(50% - 30px);
+        flex-basis: calc(50% - 30px);
+    }
 }

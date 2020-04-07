@@ -1,5 +1,5 @@
 <template>
-    <li>
+    <li class="grid-small">
         <h3>{{ offerItem.name }}</h3>
         <div class="img-container">
             <img :src="offerItem.imgUrl" :alt="offerItem.name" />
@@ -29,11 +29,8 @@ export default {
 
 <style scoped lang="scss">
 li {
-    margin: 0;
-    width: calc(25% - 30px);
-    flex-basis: calc(25% - 30px);
     padding: 20px;
-    margin: 0 15px 30px;
+    margin-bottom: 30px;
     box-sizing: border-box;
     border: 1px solid rgba(33, 147, 208, 0.3);
 }

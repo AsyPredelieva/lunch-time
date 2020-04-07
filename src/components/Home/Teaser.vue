@@ -71,4 +71,11 @@ li {
         font-size: 20px;
     }
 }
+
+/* Responsive */
+@media screen and (max-width: 960px) {
+    li strong {
+        font-size: 18px;
+    }
+}
 </style>

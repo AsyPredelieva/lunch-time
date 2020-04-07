@@ -143,4 +143,15 @@ nav ul {
         }
     }
 }
+
+/* Responsive */
+@media screen and (max-width: 960px) {
+    nav ul li {
+        margin: 0 20px;
+
+        &:not(:last-child):after {
+            right: -20px;
+        }
+    }
+}
 </style>

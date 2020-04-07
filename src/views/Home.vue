@@ -106,6 +106,7 @@ export default {
     background-image: url('../assets/info-bckgr.png'), url('../assets/info-bckgr.png');
     background-position: left -150% center, right -150% center;
     background-repeat: no-repeat;
+    background-size: 75%;
 
     .parallax-item {
         position: absolute;
