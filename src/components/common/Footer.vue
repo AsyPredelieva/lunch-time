@@ -64,4 +64,15 @@ footer {
         align-self: center;
     }
 }
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    nav ul li {
+        margin: 0 10px;
+
+        &:not(:last-child):after {
+            right: -10px;
+        }
+    }
+}
 </style>

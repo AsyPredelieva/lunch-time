@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scope lang="scss">
 nav {
     & > ul {
         display: flex;
@@ -120,11 +120,6 @@ nav {
                     }
                 }
 
-                .sub-menu-btn,
-                .sub-menu-icon {
-                    display: none;
-                }
-
                 & > ul {
                     display: none;
                     position: absolute;
@@ -155,42 +150,44 @@ nav {
             }
         }
     }
-}
 
-.menu-btn {
-    display: none;
-}
+    .menu-icon {
+        display: none;
+        padding: 28px 20px;
+        cursor: pointer;
 
-.menu-icon {
-    display: none;
-    padding: 28px 20px;
-    cursor: pointer;
-
-    .nav-icon {
-        width: 30px;
-        height: 2px;
-        display: block;
-        position: relative;
-        background: #79c150;
-
-        &:before,
-        &:after {
-            content: '';
-            width: 100%;
-            height: 100%;
+        .nav-icon {
+            width: 30px;
+            height: 2px;
             display: block;
-            position: absolute;
+            position: relative;
             background: #79c150;
-            transition: all 0.3s linear;
-        }
 
-        &:before {
-            top: 7px;
-        }
+            &:before,
+            &:after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                background: #79c150;
+                transition: all 0.3s linear;
+            }
 
-        &:after {
-            top: -7px;
+            &:before {
+                top: 7px;
+            }
+
+            &:after {
+                top: -7px;
+            }
         }
+    }
+
+    .menu-btn,
+    .sub-menu-btn,
+    .sub-menu-icon {
+        display: none;
     }
 }
 
@@ -231,10 +228,6 @@ nav {
 /* Top navigation - mobile */
 @media screen and (max-width: 768px) {
     nav.topnav {
-        .menu-icon {
-            display: block;
-        }
-
         & > ul {
             width: 100%;
             position: absolute;
@@ -390,60 +383,56 @@ nav {
                 }
             }
         }
-    }
 
-    .menu-btn {
-        &:checked ~ ul,
-        &:checked ~ .sub-nav + ul {
-            opacity: 1;
-            visibility: visible;
-
-            & > li {
+        .menu-btn {
+            &:checked ~ ul,
+            &:checked ~ .sub-nav + ul {
                 opacity: 1;
-                -webkit-transform: translateY(0px);
-                transform: translateY(0px);
-                -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
-                transition: transform 0.2s, opacity 0.2s;
+                visibility: visible;
+
+                & > li {
+                    opacity: 1;
+                    -webkit-transform: translateY(0px);
+                    transform: translateY(0px);
+                    -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+                    transition: transform 0.2s, opacity 0.2s;
+                }
+            }
+
+            &:checked ~ .menu-icon .nav-icon {
+                background: transparent;
+
+                &:before {
+                    transform: rotate(-45deg);
+                }
+
+                &:after {
+                    transform: rotate(45deg);
+                }
+            }
+
+            &:checked ~ .menu-icon:not(.steps) .nav-icon {
+                &:before,
+                &:after {
+                    top: 0;
+                }
             }
         }
 
-        &:checked ~ .menu-icon .nav-icon {
-            background: transparent;
-
-            &:before {
-                transform: rotate(-45deg);
-            }
-
-            &:after {
-                transform: rotate(45deg);
-            }
-        }
-
-        &:checked ~ .menu-icon:not(.steps) .nav-icon {
-            &:before,
-            &:after {
-                top: 0;
-            }
+        .menu-icon {
+            display: block;
         }
     }
 }
 
 @media screen and (max-width: 640px) {
-    .menu-icon {
-        padding: 20px 10px;
-    }
+    nav.topnav {
+        & > ul {
+            top: 70px;
+        }
 
-    nav.topnav > ul {
-        top: 70px;
-    }
-
-    nav > ul {
-        li {
-            margin: 0 10px;
-
-            &:not(:last-child):after {
-                right: -10px;
-            }
+        .menu-icon {
+            padding: 20px 10px;
         }
     }
 }
