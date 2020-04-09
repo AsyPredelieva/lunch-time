@@ -131,6 +131,7 @@ nav {
                     background: #fff;
                     min-width: 190px;
                     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+                    z-index: 1;
 
                     li {
                         width: 100%;

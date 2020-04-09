@@ -47,9 +47,12 @@
                                     :is-shown="isShown"
                                 ></current-order>
                             </ul>
+                            <div class="total-price">
+                                <strong>Total sum:</strong>
+                                <strong>{{ totalSum | formatNumber }} lv</strong>
+                            </div>
+                            <button class="cta-btn">Order</button>
                         </div>
-                        <div class="total-price">Total sum: {{ totalSum | formatNumber }} lv</div>
-                        <button class="cta-btn">Order</button>
                     </template>
                 </form>
             </div>
@@ -145,16 +148,14 @@ export default {
     background-size: 25%;
 }
 
-.offer-menu,
-.current-order {
+.offer-menu {
     width: 570px;
     max-width: 100%;
     margin: 0 auto;
     text-align: left;
 }
 
-.offer-menu li > ul > li,
-.current-order > ul > li {
+.offer-menu li > ul > li {
     display: flex;
     flex-grow: 1;
     flex-basis: 0;
@@ -186,19 +187,17 @@ export default {
 
 .current-order {
     margin-top: 60px;
-    padding: 20px 0 10px;
-    border-top: 1px solid rgba(33, 147, 208, 0.3);
+    text-align: center;
 }
 
 .total-price {
-    width: 570px;
-    max-width: 100%;
-    padding: 10px 0;
-    margin: 0 auto;
-    border-top: 1px solid rgba(33, 147, 208, 0.3);
     font-size: 20px;
-    font-weight: 600;
-    text-align: right;
+    padding-bottom: 10px;
+    justify-content: flex-end;
+
+    strong:last-child {
+        margin-left: 10px;
+    }
 }
 
 @media screen and (max-width: 768px) {
