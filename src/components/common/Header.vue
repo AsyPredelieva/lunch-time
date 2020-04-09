@@ -3,7 +3,7 @@
         <Logo />
         <div class="nav-container">
             <span class="welcome-box" v-if="isAuthenticated">Welcome, {{ usernamen }}</span>
-            <Nav />
+            <Nav :is-top="isTopNav"></Nav>
         </div>
     </header>
 </template>
@@ -14,6 +14,11 @@ import Logo from './Logo'
 
 export default {
     name: 'Header',
+    data() {
+        return {
+            isTopNav: true
+        }
+    },
     components: {
         Logo,
         Nav
@@ -51,6 +56,10 @@ header {
 }
 
 @media screen and (max-width: 640px) {
+    header {
+        height: 70px;
+    }
+
     .welcome-box {
         font-size: 14px;
         padding-right: 30px;

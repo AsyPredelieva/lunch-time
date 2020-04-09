@@ -37,14 +37,19 @@ footer {
         margin: 0 auto;
 
         ul li.sub-nav {
-            &:hover {
+            &:hover,
+            &:focus {
                 & > a {
                     padding-top: 45px;
+                }
+
+                & > ul {
+                    display: block;
                 }
             }
 
             & > ul {
-                top: -199px;
+                top: -194px;
                 box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.2);
             }
         }
