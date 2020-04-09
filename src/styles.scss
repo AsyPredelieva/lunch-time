@@ -271,3 +271,24 @@ img {
         flex-basis: calc(50% - 30px);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .grid-aside {
+        width: calc(100% - 30px);
+        flex-basis: calc(100% - 30px);
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .grid-half,
+    .grid-small {
+        width: calc(100% - 30px);
+        flex-basis: calc(100% - 30px);
+        margin-bottom: 30px;
+    }
+
+    .primary-button {
+        min-width: 45px;
+    }
+}

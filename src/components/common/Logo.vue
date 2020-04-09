@@ -16,4 +16,10 @@ export default {
     margin: 5px 20px;
     flex-shrink: 0;
 }
+
+@media screen and (max-width: 640px) {
+    .logo-container {
+        width: 70px;
+    }
+}
 </style>

@@ -49,4 +49,13 @@ header {
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (max-width: 640px) {
+    .welcome-box {
+        font-size: 14px;
+        padding-right: 30px;
+        background-size: 25px;
+        min-height: 55px;
+    }
+}
 </style>

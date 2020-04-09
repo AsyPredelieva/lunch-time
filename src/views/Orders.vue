@@ -73,6 +73,7 @@ export default {
     border: 1px solid rgba(33, 147, 208, 0.3);
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
 
     h3 {
         display: flex;
@@ -95,6 +96,12 @@ export default {
         justify-content: space-between;
         padding-top: 10px;
         border-top: 1px solid rgba(33, 147, 208, 0.3);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .current-order {
+        width: 100%;
     }
 }
 </style>

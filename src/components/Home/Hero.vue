@@ -96,4 +96,18 @@ export default {
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .hero {
+        background-position: center right 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .intro {
+        padding-top: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
 </style>

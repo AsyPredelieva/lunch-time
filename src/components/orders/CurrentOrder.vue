@@ -79,4 +79,14 @@ export default {
     display: inline-block;
     cursor: pointer;
 }
+
+@media screen and (max-width: 640px) {
+    .price {
+        width: 60px;
+
+        .large {
+            margin: 0 20px 0 17px;
+        }
+    }
+}
 </style>

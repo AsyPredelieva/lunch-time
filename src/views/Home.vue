@@ -152,4 +152,11 @@ export default {
     line-height: 1.4;
     font-style: italic;
 }
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .quotes-container {
+        font-size: 22px;
+    }
+}
 </style>
