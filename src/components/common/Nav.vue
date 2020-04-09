@@ -24,6 +24,9 @@
                 <li class="sub-nav">
                     <router-link to="/orders">Orders</router-link>
                 </li>
+                <li class="sub-nav">
+                    <router-link to="/MyOrders">My Orders</router-link>
+                </li>
                 <li>
                     <a @click="onLogout" class="logout">Logout</a>
                 </li>

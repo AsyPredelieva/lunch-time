@@ -5,6 +5,7 @@ const authString = btoa(`${config.appKey}:${config.appSecret}`)
 const loginUser = user => {
     localStorage.setItem('username', user.username)
     localStorage.setItem('authtoken', user.authtoken)
+    localStorage.setItem('userid', user.userId)
 
     return user
 }
@@ -41,7 +42,8 @@ export const authenticate = {
                 .then(res =>
                     loginUser({
                         username: res.data.username,
-                        authtoken: res.data._kmd.authtoken
+                        authtoken: res.data._kmd.authtoken,
+                        userId: res.data._id
                     })
                 )
                 .catch(err => console.log(err))
@@ -55,7 +57,8 @@ export const authenticate = {
                 .then(res =>
                     loginUser({
                         username: res.data.username,
-                        authtoken: res.data._kmd.authtoken
+                        authtoken: res.data._kmd.authtoken,
+                        userId: res.data._id
                     })
                 )
                 .catch(err => console.log(err))

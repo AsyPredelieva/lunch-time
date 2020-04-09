@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Offers from '../views/Offers.vue'
 import Orders from '../views/Orders.vue'
+import MyOrders from '../views/MyOrders.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import OffersList from '../components/offers/OffersList.vue'
@@ -48,6 +49,11 @@ const routes = [
     {
         path: '/orders/',
         component: Orders,
+        beforeEnter: authGuard
+    },
+    {
+        path: '/myOrders/',
+        component: MyOrders,
         beforeEnter: authGuard
     },
     {

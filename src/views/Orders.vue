@@ -1,5 +1,5 @@
 <template>
-    <div class="all-orders-container">
+    <div :class="['orders-container', { empty: !orderList }]">
         <div class="container">
             <h2>All orders</h2>
             <div v-if="!orderList">
@@ -53,8 +53,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.all-orders-container {
+<style lang="scss">
+.orders-container {
     width: 100%;
     padding: 40px 0;
     background-image: url('../assets/orders-bckgr_1.png'), url('../assets/orders-bckgr_4.png'),
@@ -62,6 +62,15 @@ export default {
     background-position: top right, bottom 20% left, top 10% left, bottom right, top 75% left;
     background-repeat: no-repeat;
     background-size: 30%, 35%, 30%, 45%, 25%;
+
+    &.empty {
+        height: 100%;
+        background-image: url(/img/orders-bckgr_1.8620d82d.png),
+            url(/img/orders-bckgr_2.afc6aa11.png);
+        background-position: top right, top 10% left;
+        background-repeat: no-repeat;
+        background-size: 30%;
+    }
 }
 
 .current-order {
