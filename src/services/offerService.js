@@ -9,10 +9,12 @@ export const offerService = {
         }
     },
     created() {
-        this.$http.defaults.headers['Authorization'] = `Kinvey ${getAuthToken()}`
-        this.$http
-            .get(`/appdata/${config.appKey}/offers`)
-            .then(({ data }) => (this.offers = data))
-            .catch(err => console.log(err))
+        if (this.isAuthenticated) {
+            this.$http.defaults.headers['Authorization'] = `Kinvey ${getAuthToken()}`
+            this.$http
+                .get(`/appdata/${config.appKey}/offers`)
+                .then(({ data }) => (this.offers = data))
+                .catch(err => console.error(err))
+        }
     }
 }
