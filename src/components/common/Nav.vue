@@ -64,9 +64,11 @@ export default {
         onLogout() {
             localStorage.removeItem('username')
             localStorage.removeItem('authtoken')
+            localStorage.removeItem('userid')
 
             this.$root.$emit('auth', null)
             this.$root.$emit('username', null)
+            this.$root.$emit('userid', null)
 
             this.$router.push('/login')
         }
